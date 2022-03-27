@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript: Variables</title>
+</head>
+
+<body>
+    <script>
+        //Cuando se sitúa al principio de un script, el script entero funciona de la manera “moderna”.
+        //https://es.javascript.info/strict-mode
+
+        "use strict";
+
+        //debugger;
+
+        /*
+        // Descomentar use strict; Vamos a usar el JS viejuno
+        miVariable = "nata";
+        console.log(miVariable);
+        //Mirar el scope Global... ahí debe de aparecer
+        */
+
+        
+        // variables globales
+        const message = 'Hello world!';
+
+        let msg = "Hola";
+        //let msg = "adiós"; //error
+
+        console.log("message:" + message);
+        try{
+            message="otro";
+        }catch(e){
+            console.error("no se puede modificar un const!!!!");
+        }
+        msg="adiós";
+        console.log(msg);
+
+        
+        // variables locales
+        if (true) {
+            const textLocal = 'whatever';
+            console.log("textLocal local:" + textLocal);
+        }
+        //console.log("textLocal fuera bloque:"+textLocal); //Esto da error
+
+        function sayHello() {
+            const textFunc = 'yo que sé';
+        }
+        //console.log(textFunc); //esto da error
+        
+        ////try{
+        //console.log("textFunc:" + textFunc);
+        ////}catch(e){
+        ////    console.error("la variable textFunc es de ámbito local a la función");
+        ////}
+
+        // -------------------------
+        //let x = myFunction(4, 3);
+        let x = myFunction("4", "5");
+
+        function myFunction(a, b) {
+            //return a * b; //decide que son números
+            return a + b;
+        }
+
+        alert("resultado:"+x);
+        // -------------------------
+        
+        // CONST CAN'T CHANGE THE VALUE
+        const name = 'Mari';
+        console.log("Name:" + name);
+
+        //name = 'Luz'; //Esto da error
+
+        // LET/VAR CAN CHANGE THE VALUE
+        let text = 'Text';
+        var whatever = 'Whatever';
+        console.log("whatever:" + whatever);
+        console.log("text:" + text);
+
+        text = "nuevo texto";
+        whatever = "otra cosa";
+
+
+        // ---------------------------------------------------------------------------------------------
+        // --------------- LA VIEJA VAR ------------------
+        // 1. No tiene (alcance), visibilidad de grupos
+
+        if (true) {
+            var test = true;
+        }
+        alert(test); //no da error, vive después del if
+
+        function sayHi() {
+            if (true) {
+                var phrase = "Hello";
+            }
+
+            alert("phrase1:"+phrase); // funciona
+        }
+
+        sayHi();
+        //alert("phrase2:"+phrase); // ReferenceError: phrase no está definida   
+
+        // ---------------------------------
+        //2. var tolera redeclaraciones
+        var user = "Ana";
+        var user = "Juan";
+        
+
+        // ------------- HOISTING ------------
+        //3. Las variables “var” pueden ser declaradas debajo del lugar en donde se usan
+        //las declaraciones de variables y funciones son asignadas en memoria durante la fase de compilación, 
+        //pero quedan exactamente en dónde las has escrito en el código
+
+        //console.log(unLet); //esto da error
+        console.log(unVar); //https://developer.mozilla.org/es/docs/Glossary/Hoisting
+
+        let unLet=1;
+        var unVar=1;
+
+        console.log("un let:" + unLet);
+        console.log("un var:" + unVar);        
+
+        //alert(user);
+        if(true){
+            miGlobal ="Mari";
+        }
+        console.log("FINNNNNNNNNNN:"+miGlobal);
+    </script>
+</body>
+
+</html>
