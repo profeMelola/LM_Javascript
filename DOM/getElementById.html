@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Element By ID</title>
+</head>
+<body>
+    <div id="elem">
+      <div id="elem-content">Elemento</div>
+    </div>
+    
+    <script>
+      // obtener el elemento
+      let elem = document.getElementById('elem');
+    
+      // hacer que su fondo sea rojo
+      elem.style.background = 'red';
+
+      // id="elem-content" tiene un guión en su interior, por lo que no puede ser un nombre de variable
+      // ...pero podemos acceder a él usando corchetes: window['elem-content']      
+      alert(window['elem-content']);
+
+      /*
+        El id debe ser único
+        El id debe ser único. Sólo puede haber en todo el documento un elemento con un id determinado.
+
+        Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, 
+        por ejemplo document.getElementById puede devolver cualquiera de esos elementos al azar. 
+        Así que, por favor, sigan la regla y mantengan el id único.
+      */
+     
+    </script>
+    </body>
+</html>

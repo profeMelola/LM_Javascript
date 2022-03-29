@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function validarCampos(form) {
+            if (form.campo2.value == form.campo1.value) {
+                alert("La contraseña sí coincide.");
+                form.submit();
+            } else {
+                alert("La contraseña no coincide.");
+                form.campo2.value = "";
+                form.campo2.focus();
+                return true;
+            }
+        }
+
+        function validarCampos2() {
+            const form = document.getElementsByTagName('form')[0];
+            if (form.campo1.value == "" )
+                alert("El primer capos está vacío");
+            else if (form.campo2.value.length == 0)
+                alert("El segundo capos está vacío");
+            else if (form.campo2.value == form.campo1.value) {
+                alert("La contraseña sí coincide.");
+                form.submit();
+            } else {
+                alert("La contraseña no coincide.");
+                form.campo2.value = "";
+                form.campo2.focus();
+                return true;
+            }
+        }
+        
+    </script>
+
+    <form name="formulario6" method="POST" action="miPagina.htm" target="_blank">
+        <p>
+            <label>Contraseña:<input type="password" name="campo1"/></label>
+        </p>
+        <p>
+            <!-- no funciona click texto por tener el atributo for?????-->
+            <!--<label for="campo2">Repite la contraseña: <input type="password" name="campo2"/></label>-->
+
+            <label>Repite la contraseña: <input type="password" name="campo2"/></label>
+        </p>
+        <p>
+            <input type="button" value="Registrarse - Primera Forma" onClick="validarCampos(this.form)">
+            <input type="button" value="Registrarse - Segunda Forma " onClick="validarCampos2()">
+        </p>
+    </form>
+
+
+</body>
+
+</html>
