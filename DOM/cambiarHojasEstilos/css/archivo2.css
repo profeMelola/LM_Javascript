@@ -1,0 +1,13 @@
+body{
+font-family: ‘Lucida Sans Unicode’, Helvetica, sans-serif;
+background:#FF9900;
+}
+h1{
+color:#FFF;
+}
+p{
+color:#000;
+}
+img{
+border:10px outset yellow;
+}
