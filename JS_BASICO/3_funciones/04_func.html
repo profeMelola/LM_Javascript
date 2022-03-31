@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript: Anonymous functions</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //console.log(sayHello()); //Da error
+            /*
+             * Funciones anónimas por defecto
+             */
+            const sayHello = function(name = 'world') {
+                return `Hello ${name}`;
+            }
+            console.log(sayHello);
+
+            //sayHello = "prueba"; //esto da error
+
+            console.log(sayHello());
+            console.log(sayHello('Mari'));
+        </script>
+    </body>
+</html>

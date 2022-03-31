@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript: Functions and return</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*
+             * Parámetro con paso de un valor por defecto por si no viniera...
+             */
+            function sayHello(name = 'world') {
+                return `Hello ${name}`;
+            }
+
+            console.log(sayHello());
+            console.log(sayHello('Mari'));
+        </script>
+    </body>
+</html>

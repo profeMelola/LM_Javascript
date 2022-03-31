@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript: Functions and params</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*
+             * Parámetro con paso de un valor por defecto por si no viniera...
+             */
+            sayHello();
+            
+            function sayHello(name = 'World') {
+                console.log('Hello ' + name)
+            }
+
+            function sayHello2(name) {
+                console.log('Hello ' + name);
+            }
+            sayHello2();
+            sayHello('Mari');
+
+            function sum(a, b) {
+                console.log(a + b);
+            }
+
+            sum(2, 5);
+            sum(10, 5);
+            sum(20, 50);
+            sum(3, 8);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*https://es.javascript.info/var*/
+        "use strict"; //para deshabilitar la compatibilidad con JS antiguo
+        let i = 5;
+        //const i = 6; //da error..
+                
+        for (let i=0; i < 10; i++){
+            console.log("valor de i dentro del bucle:"+i);
+        }
+        console.log("valor de i fuera del bucle:"+i);
+
+        ej(); //se puede invocar a la función antes de ser declarada
+        function ej(){
+            var j = 0;
+            var j = 23; //var deja que declares la misma variable dos veces. Con let y const no puedes
+            z = 2; //variable declarada sin var, let y const... muy viejuno!!!!
+            console.log("dentro func, z:"+z);
+        }
+
+        if(true){
+            var k = 55;
+        }
+        console.log("fuera, k:"+k); //No da error. Var sí sale del ámbito de una estructura
+
+        //console.log("fuera, j:"+j); //Da error. Var no sale del ámbito de la función
+        console.log("fuera, z:"+z); //Al poner use strict esto dará error porque no reconoce la variable z
+    </script>
+
+</body>
+</html>

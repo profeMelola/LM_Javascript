@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript: Arrow functions</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*
+             * Funciones flecha
+             * Son funciones anónimas
+             * Puede tener body si le ponemos corches
+             * puede tener return o no....
+             */
+            const message = 'Text example';
+            const sayHello = (name) => `Hello ${name}`; // En una única línea
+                                                        // Ya retorna lo que le digamos. 
+                                                        // No hace falta poner corchetes
+                                                        // ni return
+            const sayBye = (name) => {
+                console.log("message:"+message);
+                return `Bye ${name}`
+            }
+
+            console.log(sayHello('Mari'));
+            console.log(sayBye('Mari'));
+
+        </script>
+    </body>
+</html>

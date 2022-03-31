@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - REPASO</title>
+</head>
+
+<body>
+    <script>
+        const userName = prompt("Quién está ahí?", "");
+
+        if (userName == "Admin") {
+
+            const pass = prompt("¿Contraseña?", "");
+
+            if (pass === "TheMaster") {
+                alert("Bienvenido!");
+            } else if (pass === "" || pass === null) {
+                alert("Cancelado.");
+            } else {
+                alert("Contraseña incorrecta");
+            }
+
+        } else if (userName === "" || userName === null) {
+            alert("Canceledo");
+        } else {
+            alert("No te conozco");
+        }        
+    </script>
+</body>
+
+</html>
