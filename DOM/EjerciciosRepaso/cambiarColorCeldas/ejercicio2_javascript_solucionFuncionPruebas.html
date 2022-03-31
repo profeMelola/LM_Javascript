@@ -66,45 +66,7 @@ saldrá un mensaje informativo de “SE MODIFICA EL COLOR DE LOS GASTOS A VERDE)
 Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   */
 
     function cambiarVerde(){
-        /*
-        CONST: Es una constante la cual NO cambiara su valor en ningún momento en el futuro.
-
-        VAR: Es una variable que SI puede cambiar su valor y su scope es local.
-
-        LET: Es una variable que también podra cambiar su valor, pero solo vivirá(Funcionara) en el bloque donde fue declarada.
-        */
-
-        /*
-        El método recibe una función de callback con dos elementos, 
-        por un lado el item que será el elemento sobre el que se itera y por otro el índice que ocupa dentro de la lista. 
-        De esta forma el código que tengamos dentro de la función se ejecutará por cada uno de los elementos que tenemos dentro de la lista.
-        La función podrá ser una función anónima dentro del método .forEach() o bien podremos definirla y asignársela al método.
-        */
-        const para = document.querySelectorAll('.rojo');
-        let v = confirm('Confirma que quieres cambiar a verdeeeee');
- 
-            if(v){
-
-                alert('SE MODIFICA EL COLOR A VERDE');
-
-                // Con función anónima
-                para.forEach(function(item,index){
-                    console.log("Item: "+item+" está en la posición "+index);
-                });
-
-                // Sin función anónima
-                para.forEach(function cambiaColorCelda(btn) { btn.style.backgroundColor='green';});
-
-                // Esto no funciona. Necesitas declarar la función dentro del forEach, ya sea anónima o no
-                //para.forEach(cambiaColorCelda(btn));
-
-               
-            }
-            else{
-                alert("NO SE MODIFICA EL COLOR");
-            }
     }
-    //function cambiaColorCelda(btn) { btn.style.backgroundColor='green';}
         
 
   </script>
