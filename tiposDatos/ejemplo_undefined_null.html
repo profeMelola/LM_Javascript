@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript: Undefined / null</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*
+             * La idea de esta sección es que pruebes de una forma muy sencilla 
+             * las diferentes formas de de declarar variables 
+             * y analices los casos en los que da undefined o null y entender por qué
+             */
+
+            // UNDEFINED
+            // testing var
+            console.log(a); //devuelve undefined
+            var a = 'testing var';
+            console.log(a);
+
+            // testing let
+            //console.log(b); //esto da error
+            let b = 'testing let';
+            console.log(b);
+
+            let b2;
+            console.log(b2); //undefined: cuando la variable está definida pero no tiene un valor
+
+            // NULL
+
+            // testing let 
+            //console.log(d); //esto da error
+            let d = null;
+            console.log(d);
+            console.log(typeof d); //devuelve object
+        </script>
+    </body>
+</html>
