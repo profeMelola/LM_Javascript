@@ -18,12 +18,17 @@
       // hacer que su fondo sea rojo
       elem.style.background = 'red';
 
-      // id="elem-content" tiene un guión en su interior, por lo que no puede ser un nombre de variable
-      // ...pero podemos acceder a él usando corchetes: window['elem-content']      
+      
+      //DOS FORMAS DE ACCEDER A UN ELEMENTO CON IDENTIFICADOR ÚNICO
+      //1. 
       alert(window['elem-content']);
 
+      //2.
+      alert(document.getElementById("elem-content"));
+
+      //let elem-content= document.getElementById("elem-content");// NOTA: No podemos crear variables con el - en el nombre.
+
       /*
-        El id debe ser único
         El id debe ser único. Sólo puede haber en todo el documento un elemento con un id determinado.
 
         Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, 
