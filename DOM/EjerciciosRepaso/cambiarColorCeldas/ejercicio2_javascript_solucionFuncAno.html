@@ -66,32 +66,6 @@ saldrá un mensaje informativo de “SE MODIFICA EL COLOR DE LOS GASTOS A VERDE)
 Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   */
 
     function cambiarVerde(){
-        /*
-        CONST: Es una constante la cual NO cambiara su valor en ningún momento en el futuro.
-
-        VAR: Es una variable que SI puede cambiar su valor y su scope es local.
-
-        LET: Es una variable que también podra cambiar su valor, pero solo vivirá(Funcionara) en el bloque donde fue declarada.
-        */
-
-        /*
-        El método recibe una función de callback con dos elementos, por un lado el item que será el elemento sobre el que se itera y por otro el índice que ocupa dentro de la lista. De esta forma el código que tengamos dentro de la función se ejecutará por cada uno de los elementos que tenemos dentro de la lista.
-        La función podrá ser una función anónima dentro del método .forEach() o bien podremos definirla y asignársela al método.
-        */
-        const tds = document.querySelectorAll('.rojo');
-        let v = confirm('Confirma que quieres cambiar a verde');
- 
-            if(v){
-                alert('SE MODIFICA EL COLOR A VERDE');
-
-                // Con función anónima
-                // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-                tds.forEach(function (td) { td.style.backgroundColor='green';})
-               
-            }
-            else{
-                alert("NO SE MODIFICA EL COLOR");
-            }
     }
         
 
