@@ -1,6 +1,7 @@
 
  //Usando la propiedad innerHTML para modificar el contenido HTML de un elemento.No incluye el propio elemento
  const inner = document.getElementById("inner");
+ //document.getElementById("inner").innerHTML = "Hola a <b>todos!!!</b>";
  inner.innerHTML = "Hola a <b>todos!!!</b>";
 
  //Usando la propiedad outerHTML para modificar el contenido HTML de un elemento y el propio elemento.
@@ -18,9 +19,9 @@ inner.title = "Mensaje al pasar el ratón por encima";
 inner.id = "NO";
 
 // console.log(inner.attributes);
-// if (inner.hasAttribute("id")) console.log(inner.getAttribute("id"));
+if (inner.hasAttribute("id")) console.log(inner.getAttribute("id"));
 
-// inner.draggable=true;
-// inner.hidden=true;
+//inner.draggable=true;
+//inner.hidden=true;
 
 // Hay más propiedades!!!! estamos practicando con las más importantes!!!!
