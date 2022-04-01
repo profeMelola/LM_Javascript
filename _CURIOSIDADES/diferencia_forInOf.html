@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For in... of</title>
+</head>
+
+<body>
+    <script>
+        let arr = [3, 5, 7];
+        arr.foo = "hola";
+
+        //Específico de objetos
+        console.log("Recorriendo con for ... in");
+        for (let i in arr) {
+            console.log(i); // logs "0", "1", "2", "foo"
+        }
+
+        //Específico de colecciones
+        console.log("Recorriendo con for .. of");
+        for (let i of arr) {
+            console.log(i); // logs "3", "5", "7"
+        }
+
+        console.log("Recorriendo nombre de propiedades de un objeto:");
+        let objeto={
+            nombre: "miObjeto",
+            id: 3452
+        }
+        for(let i in objeto) console.log(i);
+
+
+    </script>
+</body>
+
+</html>
