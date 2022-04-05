@@ -9,7 +9,9 @@
 
 <body>
     <script>
+        
         function validarCampos(form) {
+            // El formulario se ha pasado como parámetro
             if (form.campo2.value == form.campo1.value) {
                 alert("La contraseña sí coincide.");
                 form.submit();
@@ -22,7 +24,12 @@
         }
 
         function validarCampos2() {
-            const form = document.getElementsByTagName('form')[0];
+            // Forma 1: para obtener el formulario
+            //const form = document.getElementsByTagName('form')[0]; //el primer elemento form del formulario (sé que solo hay uno)
+
+            // Forma 2: para obtener el formulario
+            const form = document.formulario6;
+
             if (form.campo1.value == "" )
                 alert("El primer capos está vacío");
             else if (form.campo2.value.length == 0)
