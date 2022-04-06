@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      font: 1em sans-serif;
+      width: 200px;
+      padding: 0;
+      margin: 0 auto;
+    }
+
+    p * {
+      display: block;
+    }
+
+    input[type=email] {
+      /*-webkit-appearance: none;
+      appearance: none;*/
+
+      width: 100%;
+      border: 1px solid #333;
+      margin: 0;
+
+      font-family: inherit;
+      font-size: 90%;
+
+      box-sizing: border-box;
+    }
+
+    /* Este es nuestro diseño para los campos no válidos */
+    input:invalid {
+      border-color: #900;
+      background-color: #FDD;
+    }
+
+    input:focus:invalid {
+      outline: none;
+    }
+
+    /* Este es el diseño para nuestros mensajes de error */
+    .error {
+      width: 100%;
+      padding: 0;
+
+      font-size: 80%;
+      color: white;
+      background-color: #900;
+      border-radius: 0 0 5px 5px;
+
+      box-sizing: border-box;
+    }
+
+    .error.active {
+      padding: 0.3em;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <form novalidate>
+    <p>
+      <label for="mail">
+        <span>Por favor, introduzca una dirección de correo electrónico: </span>
+        <input type="email" id="mail" name="mail" required minlength="8">
+        <span class="error" aria-live="polite" id="spanError"></span>
+        <!--https://www.usableyaccesible.com/ejemplo_aria_live/ejemplo_liveregions.html-->
+      </label>
+    </p>
+    <button type="submit">Enviar</button>
+    <button type="reset" onClick="limpiarMensaje()">Reset</button>
+  </form>
+
+  <script>
+    // Hay muchas formas de elegir un nodo DOM; aquí obtenemos el formulario y, a continuación, el campo de entrada
+    // del correo electrónico, así como el elemento span en el que colocaremos el mensaje de error.
+    const form = document.getElementsByTagName('form')[0];
+
+    const email = document.getElementById('mail');
+    const emailError = document.querySelector('#mail + span.error');
+
+    email.addEventListener('input', function (event) {
+      // Cada vez que el usuario escribe algo, verificamos si
+      // los campos del formulario son válidos.
+
+      if (email.validity.valid) {
+        // En caso de que haya un mensaje de error visible, si el campo
+        // es válido, eliminamos el mensaje de error.
+        emailError.innerHTML = ''; // Restablece el contenido del mensaje
+        emailError.className = 'error'; // Restablece el estado visual del mensaje
+      } else {
+        // Si todavía hay un error, muestra el error exacto
+        showError();
+      }
+    });
+
+    form.addEventListener('submit', function (event) {
+      // si el campo de correo electrónico es válido, dejamos que el formulario se envíe
+
+      if (!email.validity.valid) {
+        // Si no es así, mostramos un mensaje de error apropiado
+        showError();
+        // Luego evitamos que se envíe el formulario cancelando el evento
+        event.preventDefault();
+      }
+    });
+
+    function showError() {
+      if (email.validity.valueMissing) {
+        // Si el campo está vacío
+        // muestra el mensaje de error siguiente.
+        emailError.textContent = '[CUSTOM] Debe introducir una dirección de correo electrónico.';
+      } else if (email.validity.typeMismatch) {
+        // Si el campo no contiene una dirección de correo electrónico
+        // muestra el mensaje de error siguiente.
+        emailError.textContent = '[CUSTOM] El valor introducido debe ser una dirección de correo electrónico.';
+      } else if (email.validity.tooShort) {
+        // Si los datos son demasiado cortos
+        // muestra el mensaje de error siguiente.
+        emailError.textContent = `[CUSTOM] El correo electrónico debe tener al menos ${email.minLength} caracteres; ha introducido ${email.value.length}.`;        
+      }
+
+      // Establece el estilo apropiado
+      emailError.className = 'error activo';
+    }
+
+    function limpiarMensaje(){
+      document.getElementById('spanError').innerHTML='';
+    }
+  </script>
+</body>
+
+</html>

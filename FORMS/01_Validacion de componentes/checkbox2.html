@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Muestra un texto cuando el checkbox está marcado:</p>
+
+Checkbox: <input type="checkbox" id="myCheck"  onclick="myFunction()">
+
+<p id="text" style="display:none">Checkbox CHECKED!</p>
+
+<script>
+function myFunction() {
+    var checkBox = document.getElementById("myCheck");
+    var text = document.getElementById("text");
+    if (checkBox.checked == true){
+        text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+}
+</script>
+<!--
+Propiedades de un checkbox
+--------------------------
+Las propiedades que tiene un checkbox son las siguientes.
+
+checked: Informa sobre el estado del checkbox. Puede ser true o false.
+
+defaultChecked: Si está chequeada por defecto o no.
+
+value: El valor actual del checkbox.
+
+
+También tiene las propiedades form, name, type como cualquier otro elemento de formulario.
+
+Métodos del checkbox
+--------------------
+Veamos la lista de los métodos de un checkbox.
+
+click(): Es como si hiciésemos un click sobre el checkbox, es decir, cambia el estado del checkbox.
+
+blur(): Retira el foco de la aplicación del checkbox.
+
+focus(): Coloca el foco de la aplicación en el checkbox.
+-->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Verificación de campos y envío</title>
+		<script language="JavaScript">
+			function dimePropiedades(){ 
+				const texto = "El número de opciones del select es: " + document.getElementById('miSelect').length; 
+				const indice = document.getElementById('miSelect').selectedIndex; 
+				texto += "\nÍndice de la opción escogida: " + indice; 
+				const valor = document.getElementById('miSelect').options[indice].value; 
+				texto += "\nValor de la opción escogida: " + valor; 
+				const textoEscogido = document.getElementById('miSelect').options[indice].text; 
+				texto += "\nTexto de la opción escogida: " + textoEscogido; 
+				alert(texto); 
+			}
+		</script>
+	</head>
+<!--
+Propiedades del objeto select
+-----------------------------
+
+length: Guarda la cantidad de opciones del campo select. Cantidad de etiquetas <OPTION>
+
+Option: Hace referencia a cada una de sus opciones. Son por si mismas objetos.
+
+options: Un array con cada una de las opciones del select.
+
+selectedIndex: Es el índice de la opción que se encuentra seleccionada.
+
+Aparte de las conocidas propiedades comunes a todos los elementos de formulario: form y name y type.
+
+
+Métodos del objeto select
+-------------------------
+
+blur()
+Para retirar el foco de la aplicación de ese elemento de formulario.
+
+focus()
+Para poner el foco de la aplicación.
+
+
+Propiedades de option
+---------------------
+Estos objetos sólo tienen propiedades, no tienen métodos.
+
+defaultSelected: Indica con un true o un false si esa opción es la opción por defecto. 
+La opción por defecto se consigue con HTML colocando el atributo selected a un option.
+
+index: El índice de esa opción dentro del select.
+
+selected: Indica si esa opción se encuentra seleccionada o no.
+
+text: Es el texto de la opción. Lo que puede ver el usuario en el select, que se escribe después de la etiqueta <OPTION>.
+
+value: Indica el valor de la opción, que se introduce con el atributo VALUE de la etiqueta <OPTION>.
+-->
+	<body>
+		<form name="fomul"> 
+			Valoración sobre esta web: 
+			<select name="miSelect" id="miSelect" onChange="dimePropiedades()"> 
+				<option value="10">Muy bien 
+				<option value="5" selected>Regular 
+				<option value="0">Muy mal 
+			</select> 
+			<br> 
+			<br> 
+			<input type="button" value="Dime propiedades" onclick="dimePropiedades()"> 
+		</form>
+	</body>
+</html>
+
+
+

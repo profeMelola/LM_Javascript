@@ -1,0 +1,47 @@
+<html> 
+<head> 
+   <title>Cambiar el valor por defecto</title> 
+   <script> 
+    function cambiaDefecto(){ 
+	    document.miFormulario.campo1.value = "Hola!!" ;	
+    }  
+   </script> 
+</head>
+<body> 
+<!--
+Propiedades del campo text
+--------------------------
+
+defaultValue: Es el valor por defecto que tiene un campo. Lo que contiene el atributo VALUE de la etiqueta <INPUT>.
+
+form: Hace referencia al formulario.
+
+name: Contiene el nombre de este campo de formulario
+
+type: Contiene el tipo de campo de formulario que es.
+
+value: El texto que hay escrito en el campo.
+
+
+Métodos del objeto Text
+-----------------------
+
+blur()
+Retira el foco de la aplicación del campo de texto.
+
+focus()
+Pone el foco de la aplicación en el campo de texto.
+
+select()
+Selecciona el texto del campo.
+
+-->
+<form name="miFormulario" action="#" method="post" enctype="text/plain"> 
+<input type="text" name="campo1" value="" size="12"> 
+<input type="reset"> 
+<br> 
+<br> 
+<input type="button" value="Cambia valor por defecto" onClick="cambiaDefecto()"> 
+</form> 
+</body> 
+</html>

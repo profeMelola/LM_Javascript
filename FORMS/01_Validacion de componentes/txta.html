@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<meta charset="utf-8">
+		<title>Ejemplo textarea</title> 
+		<script> 
+			function cuenta(){ 
+				numCaracteres = document.formul.textito.value.length; 
+				document.formul.numCaracteres.value = numCaracteres;
+			} 
+
+			function dimePropiedades(){ 
+				let texto; 
+				texto = "El numero de opciones del select: " + document.formul.miSelect.length; 
+				const indice = document.formul.miSelect.selectedIndex; 
+				texto += "\nIndice de la opcion escogida: " + indice; 
+				const valor = document.formul.miSelect.options[indice].value; 
+				texto += "\nValor de la opcion escogida: " + valor; 
+				const textoEscogido = document.formul.miSelect.options[indice].text; 
+				texto += "\nTexto de la opcion escogida: " + textoEscogido; 
+				alert(texto); 
+			}
+
+
+			const provincias_1=new Array("-","Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","..."); 
+			const provincias_2=new Array("-","Salta","San Juan","San Luis","La Rioja","La Pampa","..."); 
+			const provincias_3=new Array("-","Cali","Santamarta","Medellin","Cartagena","..."); 
+			const provincias_4=new Array("-","Aisne","Creuse","Dordogne","Essonne","Gironde ","...");
+
+
+			function cambia_provincia(){ 
+				//tomo el valor del select del pais elegido 
+				var pais; 
+				pais = document.f1.pais[document.f1.pais.selectedIndex].value; 
+				//miro a ver si el pais está definido 
+				if (pais != 0) { 
+					//si estaba definido, entonces coloco las opciones de la provincia correspondiente. 
+					//selecciono el array de provincia adecuado 
+					mis_provincias=eval("provincias_" + pais); 
+					
+					//calculo el numero de provincias 
+					num_provincias = mis_provincias.length; 
+					//marco el número de provincias en el select 
+					document.f1.provincia.length = num_provincias; 
+					//para cada provincia del array, la introduzco en el select 
+					for(i=0;i<num_provincias;i++){ 
+						document.f1.provincia.options[i].value=mis_provincias[i]; 
+						document.f1.provincia.options[i].text=mis_provincias[i]; 
+					}	
+				}else{ 
+					//si no había provincia seleccionada, elimino las provincias del select 
+					document.f1.provincia.length = 1; 
+					//coloco un guión en la ínica opción que he dejado 
+					document.f1.provincia.options[0].value = "-"; 
+					document.f1.provincia.options[0].text = "-"; 
+				} 
+				//marco como seleccionada la opción primera de provincia 
+				document.f1.provincia.options[0].selected = true; 
+			}
+		</script> 
+	</head> 
+<!--
+Propiedades de textarea
+-----------------------
+
+defaultValue: Que contiene el valor por defecto del textarea.
+
+value: Que contiene el texto que hay escrito en el textarea.
+
+Además tiene las conocidas propiedades de elementos de formulario form, name y type.
+
+
+Métodos de textarea
+------------------
+
+blur(): Para quitar el foco de la aplicaci�n del textarea.
+
+focus(): Para poner el foco de la aplicaci�n en el textarea.
+
+select(): Selecciona el texto del textarea.
+-->
+	<body> 
+		<div>
+			<form name="formul"> 
+				<fieldset>
+					<legend>Textarea</legend>
+					<p>
+						<textarea name="textito" cols="40" rows="3">Este es el texto por defecto</textarea> 
+					</p>
+					<p>
+						N&uacute;mero de caracteres <input type="text" name="numCaracteres" size="4"> 
+					</p>
+					<p>
+						<input type=button value="Cuenta caracteres" onclick="cuenta()"> 
+					</p>
+				</fieldset>
+				<fieldset>
+					<legend>Textarea</legend>
+					<label>Valoraci&oacute;n sobre esta clase: </label>
+					<select onChange="dimePropiedades()" name="miSelect"> 
+						<option value="10">Muy bien 
+						<option value="5" selected>Regular 
+						<option value="0">Muy mal 
+					</select> 
+					<p>
+						<input type="button" value="Dime propiedades" onclick="dimePropiedades()">
+					</p>
+				</fieldset>
+			</form> 
+		</div>
+		<div>
+			<form name="f1"> 
+				<fieldset>
+					<legend>Listas desplegables</legend>
+						<select name="pais" onchange="cambia_provincia()"> 
+							<option value="0" selected>Seleccione... 
+							<option value="1">Espa&ntilde;a 
+							<option value="2">Argentina 
+							<option value="3">Colombia 
+							<option value="4">Francia 
+						</select>
+						<select name="provincia"> 
+							<option value="-">- 
+						</select> 
+				</fieldset>
+			</form>
+		</div>
+	</body> 
+</html>

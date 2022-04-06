@@ -1,0 +1,63 @@
+<html> 
+<head> 
+   	<title>Ejemplo Radio Button</title> 
+<script> 
+function cambiaColor(){ 
+   	var i; 
+   	for (i=0;i<document.fcolores.colorin.length;i++){ 
+      		if (document.fcolores.colorin[i].checked) {
+			//alert(document.fcolores.colorin[i].value);
+         		break; 
+		}
+   	} 
+   	document.bgColor = document.fcolores.colorin[i].value; 
+} 
+</script> 
+</head>
+<body> 
+<!--
+Propiedades del objeto radio
+----------------------------
+
+checked: Indica si está chekeado o no un botón de radio.
+
+defaultChecked: Su estado por defecto.
+
+value: El valor del campo de radio, asignado por la propiedad value del radio.
+
+Length (como propiedad del array de radios):
+El número de botones de radio que forman parte en el grupo. Accesible en el vector de radios.
+
+
+Métodos del checkbox
+--------------------
+Veamos la lista de los métodos de un checkbox.
+
+click(): Es como si hiciésemos un click sobre el checkbox, es decir, cambia el estado del checkbox.
+
+blur(): Retira el foco de la aplicación del checkbox.
+
+focus(): Coloca el foco de la aplicación en el checkbox.
+-->
+<form name="fcolores"> 
+<input type="radio" name="colorin" value="ffffff" onClick="cambiaColor()" checked> Blanco 
+<br> 
+<input type="radio" name="colorin" value="ff0000" onClick="cambiaColor()"> Rojo 
+<br> 
+<input type="radio" name="colorin" value="00ff00" onClick="cambiaColor()"> Verde 
+<br> 
+<input type="radio" name="colorin" value="blue" onClick="cambiaColor()"> Azul 
+<br> 
+<input type="radio" name="colorin" value="ffff00" onClick="cambiaColor()"> Amarillo 
+<br> 
+<input type="radio" name="colorin" value="00ff00" onClick="cambiaColor()"> Turquesa 
+<br> 
+<input type="radio" name="colorin" value="ff00ff" onClick="cambiaColor()"> Morado 
+<br> 
+<input type="radio" name="colorin" value="000000" onClick="cambiaColor()"> Negro 
+<br> 
+<br> 
+<!--<input type="button" name="btn" value="Cambia Color" onClick="cambiaColor()"> -->
+</form> 
+</body> 
+</html>
