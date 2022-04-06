@@ -30,7 +30,13 @@
             nombre: "miObjeto",
             id: 3452
         }
-        for(let i in objeto) console.log(i);
+        for(let propiedad in objeto) {
+            console.log(propiedad);
+            alert("forma 1:"+objeto.propiedad); //devuelve undefined
+            alert("forma 2:"+objeto.nombre);
+            alert("forma 3:"+eval("objeto."+propiedad));
+
+        }
 
 
     </script>
