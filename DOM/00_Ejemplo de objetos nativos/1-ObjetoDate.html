@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type"
+		 content="text/html;charset=utf-8">
+    <title>Objeto Date</title>
+</head>
+<body>
+	<script>
+		// https://es.javascript.info/date
+
+		// crear objeto con la fecha actual
+    	const fecha_actual = new Date();
+
+		//crear objeto con una fecha distinta a la actual
+    	const fecha_calendario = new Date(2023, 01, 01); 
+    	alert("La fecha actual es: " + fecha_actual);
+    	alert("El nuevo año comienza en: " + fecha_calendario);
+
+    	const tiempo_restante = fecha_calendario-fecha_actual;
+    	alert("Quedan " + tiempo_restante + " milisegundos para que comience el nuevo año");
+
+	</script>
+</body>
+</html>
+

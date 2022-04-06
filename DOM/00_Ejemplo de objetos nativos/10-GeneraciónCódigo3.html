@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type"
+		 content="text/html;charset=utf-8">
+	<title>Cambiar Color de fondo</title>
+</head>
+<body>
+	<h1> EJEMPLO DE USO DE COLORES<h1>
+	<h2> Selecciona el modelo <h2>
+	
+	<select>
+	  <option value="volvo">Volvo</option>
+	  <option value="saab">Saab</option>
+	  <option value="mercedes">Mercedes</option>
+	  <option value="audi">Audi</option>
+	</select>
+	<script type="text/javascript">
+		document.write("<form name=\"cambiacolor\">");
+		document.write("<b>Elige el color:</b><br>");
+		document.write("<select name=\"color\">");
+    	document.write("<option value=\"red\">Rojo</option>");
+    	document.write("<option value=\"blue\">Azul</option>");
+    	document.write("<option value=\"yellow\">Amarillo</option>");
+    	document.write("<option value=\"green\">Verde</option>");
+    	document.write("</select>"); 
+		document.write("<input type=\"button\" value=\"Modifica el color\" onclick=\"document.bgColor = document.cambiacolor.color.value\">");
+		document.write("</form>");
+	</script>
+</body>
+</html>

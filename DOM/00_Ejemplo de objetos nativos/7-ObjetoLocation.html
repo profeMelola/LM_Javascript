@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objeto Location</title>
+</head>
+<body>
+
+<h2>JavaScript</h2>
+
+<h3>window.location </h3>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+
+document.getElementById("demo").innerHTML += 
+"<br> Page hostname is: " + window.location.hostname;
+
+
+document.getElementById("demo").innerHTML  +=
+"<br> Page path is: " + window.location.pathname;
+
+document.getElementById("demo").innerHTML +=
+"<br> The page protocol is: " + window.location.protocol;
+
+document.getElementById("demo").innerHTML += 
+"<br> The URL port number of the current page is: " + window.location.port;
+
+document.getElementById("demo").innerHTML += 
+"<br><b>Note: </b>If the port number is default (80 for http and 443 for https), most browsers will display 0 or nothing.";
+
+
+alert("Nuestra ubicación actual:"+location.href); // muestra la URL actual
+if (confirm("Ir a wikipedia?")) {
+  location.href = "https://wikipedia.org"; // redirigir el navegador a otra URL
+}
+
+</script>
+
+</html>
+
+   
