@@ -65,7 +65,22 @@ saldrá un mensaje informativo de “SE MODIFICA EL COLOR DE LOS GASTOS A VERDE)
 Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   */
 
         function cambiarVerde() {
-        
+            const tds = document.querySelectorAll('.rojo');
+            let v = confirm('Confirma que quieres cambiar a verde');
+
+            if (v) {
+                alert('SE MODIFICA EL COLOR A VERDE');
+
+                // Con la función arrow
+                /*tds.forEach((td) => {
+                    td.style.backgroundColor = 'green';
+                });*/
+
+                tds.forEach( (td) => td.style.backgroundColor = 'green');
+                
+            } else {
+                alert("NO SE MODIFICA EL COLOR");
+            }
         }
     </script>
 </body>

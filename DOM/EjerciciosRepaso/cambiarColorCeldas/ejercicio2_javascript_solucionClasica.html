@@ -25,6 +25,14 @@
         .rojo {
             background-color: red;
         }
+
+        .verde {
+            background-color: greenyellow;
+        }
+
+        .violeta{
+            background-color: blueviolet;
+        }
     </style>
 </head>
 
@@ -55,18 +63,142 @@
         </tr>
     </table>
 </div>
-<br>
-<button name="button" class="rojo" onclick="cambiarVerde()">Ingresos en verde</button>
+<p>
+    <button name="button" onclick="cambiarVerde()">Ingresos en verde</button>
+</p>
+<p>
+    <button name="button" onclick="cambiarAmarillo()">Ingresos en amarillo</button>
+</p>
+
+<p>
+    <button name="button" onclick="cambiarVerde2()">Ingresos en verde segunda forma</button>
+</p>
+<p>
+    <button name="button" onclick="cambiarVioletaConClass()">Ingresos en violeta usando class</button>
+</p>
+<p>
+    <button name="button" onclick="cambiarVioletaConClassERROR()">Ingresos en violeta usando class (no funciona bien)</button>
+</p>
+
 <script>
     
 /*
+ENUNCIADO DEL EJERCICIO:
 Al hacer click sobre el botón,  mostrará  una ventanaemergente  que pedirá  confirmación al usuario para 
 cambiar a verde lo campos marcados en rojo (gastos y el botón), si el usuario acepta, 
 saldrá un mensaje informativo de “SE MODIFICA EL COLOR DE LOS GASTOS A VERDE),  y cambiará el color. 
 Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   */
 
     function cambiarVerde(){
+        // Diferentes formas de obtener las celdas con class igual a rojo
+        const celdas = document.getElementsByClassName('rojo');
+        console.log("Con getElementsByClassName:"+celdas); //devuelve HTMLObject Collection. No puedo hacer foreach
+
+        const celdas2 = document.querySelectorAll(".rojo");
+        console.log("Con querySelectorAll:"+celdas2); //devuelve Nodelist. Puedo hacer forEach
+        
+        const v = confirm('Confirma que quieres cambiar a verde');
+ 
+        if(v){
+            alert('SE MODIFICA EL COLOR A VERDE');
+
+            for (let x = 0; x < celdas.length; x++) {
+                console.log(x);
+                celdas[x].style.backgroundColor='green';
+            }
+            // Da el error: Uncaught TypeError: testElements.forEach is not a function....
+            //celdas.forEach( celda => celda.style.backgroundColor = 'green');
+            
+        }
+        else{
+            alert("NO SE MODIFICA EL COLOR");
+        }
     }
+
+    /*
+     * Usando la función querySelectorAll. Puedo usar arrows
+     */
+     function cambiarVerde2(){
+        const celdas = document.querySelectorAll('.rojo');
+        const v = confirm('Confirma que quieres cambiar a verde');
+        if (v) {
+            alert('Vas a cambiar las celdas de rojo a verde');
+            celdas.forEach( c => {
+                c.style.backgroundColor = 'green';
+                console.log(c);
+            });
+            
+        }
+        else alert('No vas a modificar e color');
+    }
+
+    /*
+     * Función para cambiar el background a amarillo usando el for...of
+     */
+    function cambiarAmarillo(){
+        const celdas = document.getElementsByClassName('rojo'); //devuelve una colección de Objetos HTML que puedo recorrer como un array
+
+        console.log("[función cambiarAmarillo] Recorriendo con of...");
+        for (const y of celdas){
+            console.log(y);
+            y.style.backgroundColor='yellow';
+        }
+
+    }
+
+    /*
+     * Usando la función querySelectorAll. Puedo usar arrows
+     * Añadiendo clases de estilos. No estilos inline
+     */
+    function cambiarVioletaConClass(){
+        const celdas = document.querySelectorAll('.rojo');
+        const v = confirm('Confirma que quieres cambiar a violeta');
+
+        if (v) {
+            alert('Vas a cambiar las celdas de rojo a violeta');
+            /*
+            // PRIMERA FORMA
+            // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
+            celdas.forEach( celda => {
+                celda.classList.remove('rojo');
+                celda.classList.add('violeta');
+            });
+
+            // Frikada!!!
+            alert('Después de 3 segundos volverán los colores originales....');
+            setTimeout( () => {
+                    celdas.forEach( celda => {
+                    celda.classList.remove('violeta');
+                    celda.classList.add('rojo');
+                    });
+                }, 3000);
+            */
+
+            /*
+           // SEGUNDA FORMA
+           // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
+           for(celda of celdas){
+                celda.classList.remove('rojo');
+                celda.classList.add('violeta');
+           }*/
+
+        }
+        else alert('No vas a modificar el color');
+
+    }
+    /*
+     * Con getElementsByClassName no podemos recorrer y borrar a la vez clases
+     */
+    function cambiarVioletaConClassERROR(){
+            const celdas = document.getElementsByClassName('rojo');
+
+            for(const celda of celdas){
+                celda.classList.remove('rojo');
+                celda.classList.add('violeta');
+            }
+
+    }
+
         
 
   </script>
