@@ -32,15 +32,16 @@
             const form2 = document.forms["miForm"];
             console.log(form2);
 
-            
             // Forma 3: para obtener el elemento formulario por nombre
-            const form3 = document.miForm;
+            const form3 = document.forms.miForm;
             console.log(form3);
-
-            const form4 = document.forms.miForm;
+            
+            // Forma 4: para obtener el elemento formulario por nombre (notación corta)
+            const form4 = document.miForm;
             console.log(form4);
 
-            const form = form1;
+
+            const form = form4;
 
             if (form.campo1.value == "" )
                 alert("El primer capos está vacío");
