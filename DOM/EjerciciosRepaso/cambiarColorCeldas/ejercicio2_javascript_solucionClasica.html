@@ -102,12 +102,21 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
         if(v){
             alert('SE MODIFICA EL COLOR A VERDE');
 
+            
+            // Primera forma tradicional
             for (let x = 0; x < celdas.length; x++) {
                 console.log(x);
-                celdas[x].style.backgroundColor='green';
+                //celdas[x].style.backgroundColor='green';
+                //También podemos usar la función setAttribute
+                celdas[x].setAttribute("style","background-color: green");
+
             }
+
+            // Segunda forma
             // Da el error: Uncaught TypeError: testElements.forEach is not a function....
             //celdas.forEach( celda => celda.style.backgroundColor = 'green');
+            // La opción para usar el forEach es:
+            //Array.from(celdas).forEach(c => c.style.backgroundColor='green');
             
         }
         else{
