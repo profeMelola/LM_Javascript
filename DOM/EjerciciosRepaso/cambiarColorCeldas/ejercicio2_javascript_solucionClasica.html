@@ -147,7 +147,8 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
     }
 
     /*
-     * Usando la función querySelectorAll. Puedo usar arrows
+     * Usando la función querySelectorAll. 
+     * Puedo usar arrows
      * Añadiendo clases de estilos. No estilos inline
      */
     function cambiarVioletaConClass(){
@@ -155,8 +156,9 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
         const v = confirm('Confirma que quieres cambiar a violeta');
 
         if (v) {
-            alert('Vas a cambiar las celdas de rojo a violeta');
             /*
+            alert('Vas a cambiar las celdas de rojo a violeta');
+            
             // PRIMERA FORMA
             // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
             celdas.forEach( celda => {
@@ -174,13 +176,13 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
                 }, 3000);
             */
 
-            /*
+            
            // SEGUNDA FORMA
            // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
-           for(celda of celdas){
+           for(const celda of celdas){
                 celda.classList.remove('rojo');
                 celda.classList.add('violeta');
-           }*/
+           }
 
         }
         else alert('No vas a modificar el color');
@@ -188,8 +190,10 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
     }
     /*
      * Con getElementsByClassName no podemos recorrer y borrar a la vez clases
+     * La razón es que Todos los métodos "getElementsBy*" devuelven una colección viva (live collection). 
+     * Tales colecciones siempre reflejan el estado actual del documento y se “auto-actualizan” cuando cambia.
      */
-    function cambiarVioletaConClassERROR(){
+     function cambiarVioletaConClassERROR(){
             const celdas = document.getElementsByClassName('rojo');
 
             for(const celda of celdas){
