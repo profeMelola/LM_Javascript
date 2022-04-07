@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 30%;
+        }
+
+        table,
+        th,
+        td {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        .cabecera {
+            background-color: coral;
+        }
+
+        .rojo {
+            background-color: red;
+        }
+
+        .verde {
+            background-color: greenyellow;
+        }
+
+        .violeta{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    <table>
+        <tr>
+            <td colspan="2">Enero</td>
+            <td colspan="2">Febrero</td>
+        </tr>
+        <tr>
+            <td >Ingresos</td>
+            <td>Gastos</td>
+            <td>Ingresos</td>
+            <td>Gastos</td>
+        </tr>
+        <tr>
+            <td>1.000€</td>
+            <td class="rojo">700€</td>
+            <td>1.100€</td>
+            <td class="rojo">580€</td>
+        </tr>
+        <tr>
+            <td>1.800€</td>
+            <td class="rojo">920€</td>
+            <td>1.750€</td>
+            <td class="rojo">920€</td>
+        </tr>
+    </table>
+</div>
+<p>
+    <button name="button" onclick="cambiarVerde()">Ingresos en verde</button>
+</p>
+<script>
+    
+/*
+ENUNCIADO DEL EJERCICIO:
+Al hacer click sobre el botón,  mostrará  una ventanaemergente  que pedirá  confirmación al usuario para 
+cambiar a verde lo campos marcados en rojo (gastos y el botón), si el usuario acepta, 
+saldrá un mensaje informativo de “SE MODIFICA EL COLOR DE LOS GASTOS A VERDE),  y cambiará el color. 
+Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   */
+
+    function cambiarVerde(){
+    }
+
+        
+
+  </script>
+</body>
+
+</html>
