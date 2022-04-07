@@ -5,30 +5,17 @@
 		<title>Ejemplo textarea</title> 
 		<script> 
 			function cuenta(){ 
-				numCaracteres = document.formul.textito.value.length; 
-				document.formul.numCaracteres.value = numCaracteres;
+				document.formul.numCaracteres.value = document.formul.textito.value.length;
 			} 
 
-			function dimePropiedades(){ 
-				let texto; 
-				texto = "El numero de opciones del select: " + document.formul.miSelect.length; 
-				const indice = document.formul.miSelect.selectedIndex; 
-				texto += "\nIndice de la opcion escogida: " + indice; 
-				const valor = document.formul.miSelect.options[indice].value; 
-				texto += "\nValor de la opcion escogida: " + valor; 
-				const textoEscogido = document.formul.miSelect.options[indice].text; 
-				texto += "\nTexto de la opcion escogida: " + textoEscogido; 
-				alert(texto); 
-			}
-
-
-			const provincias_1=new Array("-","Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","..."); 
-			const provincias_2=new Array("-","Salta","San Juan","San Luis","La Rioja","La Pampa","..."); 
-			const provincias_3=new Array("-","Cali","Santamarta","Medellin","Cartagena","..."); 
-			const provincias_4=new Array("-","Aisne","Creuse","Dordogne","Essonne","Gironde ","...");
-
-
 			function cambia_provincia(){ 
+
+				const provincias_1=new Array("-","Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","..."); 
+				const provincias_2=new Array("-","Salta","San Juan","San Luis","La Rioja","La Pampa","..."); 
+				const provincias_3=new Array("-","Cali","Santamarta","Medellin","Cartagena","..."); 
+				const provincias_4=new Array("-","Aisne","Creuse","Dordogne","Essonne","Gironde ","...");
+
+
 				//tomo el valor del select del pais elegido 
 				var pais; 
 				pais = document.f1.pais[document.f1.pais.selectedIndex].value; 
@@ -92,18 +79,6 @@ select(): Selecciona el texto del textarea.
 					</p>
 					<p>
 						<input type=button value="Cuenta caracteres" onclick="cuenta()"> 
-					</p>
-				</fieldset>
-				<fieldset>
-					<legend>Textarea</legend>
-					<label>Valoraci&oacute;n sobre esta clase: </label>
-					<select onChange="dimePropiedades()" name="miSelect"> 
-						<option value="10">Muy bien 
-						<option value="5" selected>Regular 
-						<option value="0">Muy mal 
-					</select> 
-					<p>
-						<input type="button" value="Dime propiedades" onclick="dimePropiedades()">
 					</p>
 				</fieldset>
 			</form> 

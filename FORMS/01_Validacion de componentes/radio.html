@@ -3,13 +3,26 @@
    	<title>Ejemplo Radio Button</title> 
 <script> 
 function cambiaColor(){ 
-   	var i; 
+   	
+	let i = 0;
+	/*
+	// Primera forma
    	for (i=0;i<document.fcolores.colorin.length;i++){ 
       		if (document.fcolores.colorin[i].checked) {
 			//alert(document.fcolores.colorin[i].value);
          		break; 
 		}
-   	} 
+   	} */
+
+	let encontrado = false;
+	const longitud = document.fcolores.colorin.length;
+	while(!encontrado && i < longitud){
+		if (document.fcolores.colorin[i].checked) encontrado=true;
+		else i++;
+
+	}
+
+
    	document.bgColor = document.fcolores.colorin[i].value; 
 } 
 </script> 

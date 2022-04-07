@@ -4,8 +4,9 @@
 		<meta charset="utf-8">
 		<title>Verificación de campos y envío</title>
 		<script language="JavaScript">
+
 			function dimePropiedades(){ 
-				const texto = "El número de opciones del select es: " + document.getElementById('miSelect').length; 
+				let texto = "El número de opciones del select es: " + document.getElementById('miSelect').length; 
 				const indice = document.getElementById('miSelect').selectedIndex; 
 				texto += "\nÍndice de la opción escogida: " + indice; 
 				const valor = document.getElementById('miSelect').options[indice].value; 
@@ -14,6 +15,34 @@
 				texto += "\nTexto de la opción escogida: " + textoEscogido; 
 				alert(texto); 
 			}
+
+			function addOpcion(nombre, valor){
+				const select = document.getElementById('miSelect');
+
+				/*
+				// Primera forma
+				let newOpt = new Option(nombre.value,valor.value);
+
+				if (select != null){
+					select.append(newOpt);
+					select.options[select.length - 1].selected =  true;
+				}
+				*/
+				
+				
+				// Segunda forma
+				let longitud = select.length;
+				select.length = longitud + 1; //tengo que ampliar la longitud del select +1 por el elemento nuevo que voy a añadir
+				console.log(longitud);
+				if (select != null){
+					select.options[longitud].value=valor.value;
+					select.options[longitud].text=nombre.value;
+					select.options[select.length -1].selected =  true;
+				}
+				
+
+			}
+
 		</script>
 	</head>
 <!--
@@ -58,15 +87,29 @@ value: Indica el valor de la opción, que se introduce con el atributo VALUE de 
 -->
 	<body>
 		<form name="fomul"> 
-			Valoración sobre esta web: 
-			<select name="miSelect" id="miSelect" onChange="dimePropiedades()"> 
-				<option value="10">Muy bien 
-				<option value="5" selected>Regular 
-				<option value="0">Muy mal 
-			</select> 
-			<br> 
-			<br> 
-			<input type="button" value="Dime propiedades" onclick="dimePropiedades()"> 
+			<fieldset>
+				<label>Valoración sobre esta web: </label>
+				<select name="miSelect" id="miSelect" onChange="dimePropiedades()"> 
+					<option value="10">Muy bien 
+					<option value="5" selected>Regular 
+					<option value="0">Muy mal 
+				</select> 
+			
+				<p>
+					<input type="button" value="Dime propiedades" onclick="dimePropiedades()"> 
+				</p>
+			</fieldset>
+			<fieldset>
+				<p>
+					<label>Nombre de la opción: <input type="text" name="nombreOptNew"/></label>
+				</p>
+				<p>
+					<label>Valor de la opción: <input type="text" name="valorOptNew"/></label>
+				</p>
+				<p>
+					<input type="button" value="Añade nueva opción" onclick="addOpcion(this.form.nombreOptNew,this.form.valorOptNew)"> 
+				</p>
+			</fieldset>
 		</form>
 	</body>
 </html>
