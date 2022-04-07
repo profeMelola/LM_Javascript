@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        
+
         function validarCampos(form) {
             // El formulario se ha pasado como parámetro
             if (form.campo2.value == form.campo1.value) {
@@ -24,11 +24,23 @@
         }
 
         function validarCampos2() {
-            // Forma 1: para obtener el formulario
-            //const form = document.getElementsByTagName('form')[0]; //el primer elemento form del formulario (sé que solo hay uno)
+            // Forma 1: para obtener el elemento formulario por posición
+            const form1 = document.getElementsByTagName('form')[0]; //el primer elemento form del formulario (sé que solo hay uno)
+            console.log(form1);
 
-            // Forma 2: para obtener el formulario
-            const form = document.formulario6;
+            // Forma 2: para obtener el elemento formulario por nombre 
+            const form2 = document.forms["miForm"];
+            console.log(form2);
+
+            
+            // Forma 3: para obtener el elemento formulario por nombre
+            const form3 = document.miForm;
+            console.log(form3);
+
+            const form4 = document.forms.miForm;
+            console.log(form4);
+
+            const form = form1;
 
             if (form.campo1.value == "" )
                 alert("El primer capos está vacío");
@@ -47,19 +59,18 @@
         
     </script>
 
-    <form name="formulario6" method="POST" action="miPagina.htm" target="_blank">
+    <form name="miForm" method="POST" target="_blank">
         <p>
             <label>Contraseña:<input type="password" name="campo1"/></label>
         </p>
         <p>
-            <!-- no funciona click texto por tener el atributo for?????-->
-            <!--<label for="campo2">Repite la contraseña: <input type="password" name="campo2"/></label>-->
-
             <label>Repite la contraseña: <input type="password" name="campo2"/></label>
         </p>
         <p>
-            <input type="button" value="Registrarse - Primera Forma" onClick="validarCampos(this.form)">
-            <input type="button" value="Registrarse - Segunda Forma " onClick="validarCampos2()">
+            <input type="button" value="Registrarse - Primera Forma" onClick="validarCampos(this.form)"/>
+        </p>
+        <p>
+            <input type="button" value="Registrarse - Segunda Forma " onClick="validarCampos2()"/>
         </p>
     </form>
 
