@@ -12,14 +12,13 @@
 
         function validarCampos(form) {
             // El formulario se ha pasado como parámetro
-            if (form.campo2.value == form.campo1.value) {
+            if (form.campo2.value === form.campo1.value) {
                 alert("La contraseña sí coincide.");
                 form.submit();
             } else {
                 alert("La contraseña no coincide.");
                 form.campo2.value = "";
                 form.campo2.focus();
-                return true;
             }
         }
 
@@ -54,13 +53,12 @@
                 alert("La contraseña no coincide.");
                 form.campo2.value = "";
                 form.campo2.focus();
-                return true;
             }
         }
         
     </script>
 
-    <form name="miForm" method="POST" target="_blank">
+    <form name="miForm" method="POST">
         <p>
             <label>Contraseña:<input type="password" name="campo1"/></label>
         </p>

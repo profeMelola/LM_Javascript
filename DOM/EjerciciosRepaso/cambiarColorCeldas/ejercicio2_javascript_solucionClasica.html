@@ -24,6 +24,7 @@
 
         .rojo {
             background-color: red;
+            padding: 5px;
         }
 
         .verde {
@@ -114,9 +115,9 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
 
             // Segunda forma
             // Da el error: Uncaught TypeError: testElements.forEach is not a function....
-            //celdas.forEach( celda => celda.style.backgroundColor = 'green');
+            // celdas.forEach( celda => celda.style.backgroundColor = 'green');
             // La opción para usar el forEach es:
-            //Array.from(celdas).forEach(c => c.style.backgroundColor='green');
+            // Array.from(celdas).forEach(c => c.style.backgroundColor='green');
             
         }
         else{
@@ -136,6 +137,9 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
                 c.style.backgroundColor = 'green';
                 console.log(c);
             });
+
+            //celdas.forEach( c => c.style.backgroundColor = 'green');
+
             
         }
         else alert('No vas a modificar e color');
@@ -150,7 +154,8 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
         console.log("[función cambiarAmarillo] Recorriendo con of...");
         for (const y of celdas){
             console.log(y);
-            y.style.backgroundColor='yellow';
+            //y.style.backgroundColor='yellow';
+            y.setAttribute("style","background-color: green");
         }
 
     }
@@ -165,13 +170,13 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
         const v = confirm('Confirma que quieres cambiar a violeta');
 
         if (v) {
-            /*
+            
             alert('Vas a cambiar las celdas de rojo a violeta');
             
             // PRIMERA FORMA
             // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
             celdas.forEach( celda => {
-                celda.classList.remove('rojo');
+                //celda.classList.remove('rojo');
                 celda.classList.add('violeta');
             });
 
@@ -183,15 +188,15 @@ Si  no acepta, saldrá un mensaje informativo “NO SE MODIFICA EL COLOR”.   *
                     celda.classList.add('rojo');
                     });
                 }, 3000);
-            */
+            
 
             
            // SEGUNDA FORMA
            // Funciona perfectamente borrar y añadir estilos mientras recorro las celdas
-           for(const celda of celdas){
+           /*for(const celda of celdas){
                 celda.classList.remove('rojo');
                 celda.classList.add('violeta');
-           }
+           }*/
 
         }
         else alert('No vas a modificar el color');
