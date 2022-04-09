@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas con eval</title>
+</head>
+<body>
+    <script>
+        let code = 'alert("Hello")';
+        eval(code); // Hello
+
+        let value = eval('1+1');
+        alert(value); // 2
+
+        let value2 = eval('let i = 0; ++i');
+        alert(value2); // 1
+
+        let x = 5;
+        eval("x = 10");
+        alert(x); // 10, valor modificado
+
+        /*
+         NOTAS:
+          - En programación moderna eval es usado muy ocasionalmente.
+          - El uso de variables locales dentro de eval es también considerado una mala práctica de programación, 
+            porque hace el mantenimiento de código más difícil.
+          - Si el código evaluado no usa variables externas, llama eval como window.eval(...)
+          - Si el código evaluado necesita variables locales, cambia eval por new Function y pásalas como argumentos.
+
+        */
+        evalConWindow();
+        evalConFunction();
+
+        // Para llamar a variables globales
+        function evalConWindow(){
+            let x = 5;
+            window.eval('alert("window.eval:"+x)'); // 10 (variable global)
+            eval('alert("eval:"+x)');
+        }
+
+        // Para llamar a variables locales
+        function evalConFunction(){
+            let f = new Function('a', 'alert(a)');
+            f(5); // 5
+        }
+
+    </script>
+</body>
+</html>
