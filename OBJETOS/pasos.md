@@ -7,8 +7,6 @@ https://es.javascript.info/object-methods
 
 https://es.javascript.info/prototype-inheritance
 
-https://es.javascript.info/try-catch
-
 ## Clases
 
  En JavaScript moderno hay un constructor más avanzado, “class”, que introduce características nuevas muy útiles para la programación orientada a objetos.
