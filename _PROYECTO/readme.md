@@ -17,3 +17,6 @@ Realizaremos diferentes versiones según avancemos con teoría en clase.
 ![image](https://user-images.githubusercontent.com/91023374/163730800-9b04c211-7148-40af-be86-536943164eed.png)
 
 
+### Pista 1: Código HTML de cada producto
+
+![image](https://user-images.githubusercontent.com/91023374/163801118-6b1e1f99-f461-41c7-93e8-193517191d9b.png)
