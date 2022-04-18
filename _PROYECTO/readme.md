@@ -1,10 +1,10 @@
 # TIENDA ONLINE: Carrito de la compra
 
-## Esta web es en la que trabajaremos el resto del trimestre
+## Esta web es la que vamos a desarrollar juntos en clase el resto del trimestre
 
 https://profemelola.000webhostapp.com/carrito/
 
-Aprenderemos:
+**Aprenderemos:**
 - Modificar el DOM.
 - Gestión de eventos.
 - Trabajar con objetos.
