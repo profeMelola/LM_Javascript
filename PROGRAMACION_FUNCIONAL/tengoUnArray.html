@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Funcional - Array</title>
+</head>
+<body>
+    <script>
+        
+        // Partimos de este array para trabajar con él
+        // Piensa en la forma en la que implementarías la misma lógica pero sin usar programación funcional
+        // Saca tus propias conclusiones
+
+        const losSimpson = ['Homer', 'Marge', 'Lisa', 'Bart', 'Maggie'];
+
+        //Obtener elementos del array que empiecen por una letra concreta
+        //filter: extrae varios elementos
+        function nombresEmpiecenPor(letra){
+            console.log(losSimpson.filter(nombre => nombre[0] === letra));
+        }
+
+        //Obtener primer elemento que empiece por M
+        //find: extrae solo un elemento
+        function primerNombreEmpiecePor(letra){
+            console.log(losSimpson.find( nombre => nombre[0] === letra));
+        }
+
+        //Contar cuantas letras suman todos los nombres del array
+        //reduce: calcula un valor que devuelve
+        function contarLetrasNombres(){
+            console.log(losSimpson.reduce((total,nombre) => total + nombre.length,0));
+        }
+
+        //Convertir todos los nombres a mayúsculas
+        //map: transforma el contenido de un array
+        function convertirNombresMay(){
+            console.log(losSimpson.map(nombre => nombre.toUpperCase()));
+        }
+
+        //Rellenar un array con un valor concreto
+        //fill: sustituye todo el contenido de un array con un nuevo contenido
+        function rellenaArray(numero, valor){
+            console.log(Array(numero).fill(valor));
+        }
+
+        //Mostrar cuantas letras contiene cada nombre
+        //forEach: recorre un array obteniendo su posición y valor
+        function contarLetrasCadaNombre(){
+            losSimpson.forEach(nombre => console.log(`${nombre} contiene ${nombre.length}`));
+        }
+
+        function contarLetrasCadaNombrePosicion(){
+            losSimpson.forEach( (nombre,posicion) => {
+                console.log(`La palabra ${nombre}, en la posicion ${posicion}, contiene ${nombre.length}`);
+            });
+        }
+
+        //Devolver false si todos los nombres no contienen la letra a
+        //every: igual que some pero debe cumplirse siempre
+        function contienenTodosLetra(letra){
+            console.log(losSimpson.every( nombre => nombre[0] === letra));
+        }
+
+        //Preguntar si existe una cadena concreto (independientemente de si está en may o min)
+        //some: te dice si un array cumple la condición en algún momento
+        function contieneAlgunoPalabra(palabra){
+            console.log(losSimpson.some( nombre => nombre.toLowerCase() === palabra.toLowerCase()));
+        }
+        //includes: busca si existe un elemento dentro de un array
+        function contiene(elemento){
+            console.log(losSimpson.includes(elemento));
+
+        }
+
+        //Concatenar dos array
+        function unirArray(uno,dos){
+            //Primera forma
+            console.log(uno.concat(dos));
+            //Segunda forma
+            console.log([].concat(uno,dos));
+        }
+
+        //Obtener un subarray
+        function cortarArray(posInit, posEnd){
+            console.log(losSimpson.slice(posInit,posEnd));
+        }
+
+        //Unir en un string todos los elementos del array por un separador
+        function unirElementos(separador){
+            console.log(losSimpson.join(separador));
+        }
+
+        //Separar en un array una cadena de texto (por un separador)
+        function creaArray(cadena, separador){
+            console.log(cadena.split(separador));
+        }
+
+        nombresEmpiecenPor('M');
+        primerNombreEmpiecePor('M');
+        contarLetrasNombres();
+        convertirNombresMay();
+        rellenaArray(4,"Mari");
+        contarLetrasCadaNombre();
+        contarLetrasCadaNombrePosicion();
+        contienenTodosLetra('a');
+        contieneAlgunoPalabra("Maggie");
+        contiene("Bart");
+        unirArray(['Homer', 'Marge'],['Lisa', 'Bart', 'Maggie']);
+        cortarArray(1,3);
+        unirElementos('-');
+        creaArray('Homer-Marge-Lisa-Bart-Maggie','-');
+
+    </script>
+</body>
+</html>
