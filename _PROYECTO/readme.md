@@ -8,6 +8,7 @@ https://profemelola.000webhostapp.com/carrito/
 - Modificar el DOM.
 - Gestión de eventos.
 - Trabajar con objetos.
+- Programación funcional con JS.
 - Trabajar con JSON y guardar el carrito de la compra en el LocalStorage
 - Peticiones remotas a través de XMLHttpRequest y Fetch
 
