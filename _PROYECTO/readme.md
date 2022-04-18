@@ -19,4 +19,9 @@ Realizaremos diferentes versiones según avancemos con teoría en clase.
 
 ### Pista 1: Código HTML de cada producto
 
-![image](https://user-images.githubusercontent.com/91023374/163801118-6b1e1f99-f461-41c7-93e8-193517191d9b.png)
+![image](https://user-images.githubusercontent.com/91023374/163801399-05c531e9-71fc-4a6c-99b1-318aa681b8a7.png)
+
+### Pista 2: Código HTML de la lista de la compra
+
+![image](https://user-images.githubusercontent.com/91023374/163801533-dd72da6e-8489-4aba-bbad-8af75c7f6b91.png)
+
