@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        
+
         // Partimos de este array para trabajar con él
         // Piensa en la forma en la que implementarías la misma lógica pero sin usar programación funcional
         // Saca tus propias conclusiones
@@ -29,6 +29,7 @@
 
         //Contar cuantas letras suman todos los nombres del array
         //reduce: calcula un valor que devuelve
+        // El segundo parámetro es el valor inicial
         function contarLetrasNombres(){
             console.log(losSimpson.reduce((total,nombre) => total + nombre.length,0));
         }
