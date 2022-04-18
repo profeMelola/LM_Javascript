@@ -52,8 +52,9 @@ function renderizarProductos() {
 
     baseDeDatos.forEach((info) => {
 
-        //Observa la captura del div correspondiente a cada producto y construye dinámicamente el correspondiente código HTML
-        //
+        // PISTA 1
+        // Observa la captura del div correspondiente a cada producto y construye dinámicamente el correspondiente código HTML
+        // https://github.com/profeMelola/LM_Javascript/blob/main/_PROYECTO/readme.md#pista-1-c%C3%B3digo-html-de-cada-producto
         
 
     });
@@ -71,6 +72,8 @@ function anyadirProductoAlCarrito(evento) {
  */
 function renderizarCarrito() {
 
+    // PISTA 2: 
+    // https://github.com/profeMelola/LM_Javascript/blob/main/_PROYECTO/readme.md#pista-2-c%C3%B3digo-html-de-la-lista-de-la-compra
 }
 
 /**
