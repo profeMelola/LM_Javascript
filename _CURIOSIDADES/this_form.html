@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THIS</title>
 </head>
+
 <body>
     <button name="boton" onclick="alert(this)">Haz click y te digo que elemento es this</button>
+
     <form action="#">
         <button name="boton2" onclick="alert(this)">[DENTRO FORM] Haz click y te digo que elemento es this</button>
     </form>
     <form action="#" name="form2">
-        <button name="boton2" onclick="alert(this.form)">[DENTRO FORM] Haz click y te digo que elemento es this.form</button>
+        <button name="boton3" onclick="alert(this.form)">[DENTRO FORM] Haz click y te digo que elemento es
+            this.form</button>
     </form>
     <form action="#" id="form3">
-        <button name="boton2" onclick="alert(this.form.id)">[DENTRO FORM] Haz click y te digo que elemento es this.form.id</button>
+        <button name="boton4" onclick="alert(this.form.id)">[DENTRO FORM] Haz click y te digo que elemento es
+            this.form.id</button>
     </form>
+
+    <p>
+        <button name="boton5" onclick="pruebaThis(event)">Haz click para llamar a la funcion pruebaThis</button>
+    </p>
+
     <script>
+        //"use strict";
+
         console.log(this); //object window
 
         console.log(this.form); //undefined
@@ -29,8 +41,23 @@
         console.log(document.forms[0]); //Devuelve el primer formulario
         console.log(document.forms.form2); //Devuelve el segundo formulario
         console.log(document.querySelector("#form3")); //Devuelve el tercer formulario
-        console.log(document.form2);//devuelve el segundo formulario
-        console.log(document.form2.elements);//HTMLFormControlsCollection
+        console.log(document.form2); //devuelve el segundo formulario
+        console.log(document.form2.elements); //HTMLFormControlsCollection
+
+        function pruebaThis(e) {
+            console.log("En pruebaThis....");
+            console.log(this);
+        }
+
+        //this usado para acceder a la propiedad de un objeto
+        const o = {
+            prop: 45,
+            f: function () {
+                return this.prop;
+            }
+        };
+        console.log(o.f());
     </script>
 </body>
+
 </html>
