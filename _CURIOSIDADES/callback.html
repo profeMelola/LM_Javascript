@@ -40,7 +40,33 @@
         el programa no se queda bloqueado esperando a que terminen los 2 segundos y se ejecute la función callback, sino que continúa con el flujo general del programa para volver más adelante cuando sea necesario a ejecutar el callback, 
         aprovechando así mejor el tiempo y realizando tareas de forma asíncrona.*/
 
+        //alert(document.querySelector("#callback-btn")); //null, no se ha cargado el HTML
+
+        
     </script>
+
+    <button id="callback-btn">Haga clic aquí</button>
+
+    <script>
+        /*
+        JavaScript es un lenguaje de programación basado en eventos. 
+        También utilizamos funciones callbacks para las declaraciones de eventos.
+        EJEMPLO:  Seleccionamos el botón primero con su id, 
+        y luego añadimos un receptor de eventos con el método addEventListener. 
+        Toma 2 parámetros. 
+        El primero es su tipo, "click", 
+        y el segundo parámetro es una función callback, que registra el mensaje cuando el botón es pulsado
+        */
+
+        alert(document.querySelector("#callback-btn"));
+
+        document.querySelector("#callback-btn").addEventListener("click", function () {
+                alert("clic");
+                console.log("El usuario ha hecho clic en el botón.");
+            });        
+
+    </script>
+
 </body>
 
 </html>
