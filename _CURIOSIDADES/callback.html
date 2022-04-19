@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones CallBack / Anónimas</title>
+</head>
+
+<body>
+    <script>
+        // Ejemplo de función CallBack
+        // Los callbacks son un tipo de funciones que se pasan por parámetro a otras funciones
+        // Relacionado con el concepto de asincronía en JS
+        const mensaje = function () {
+            console.log("Este mensaje se muestra después de 5 segundos");
+        }
+
+        setTimeout(mensaje, 5000);
+
+        // Función anónima: la función callback aquí no tiene nombre
+        setTimeout(function () {
+            console.log("Este mensaje se muestra después de 3 segundos");
+        }, 3000);
+
+
+        // Función Callback en forma de flecha
+        setTimeout(() => {
+            console.log("Este mensaje se muestra después de 1 segundo");
+        }, 1000);
+
+
+        setTimeout(() => console.log("He ejecutado la función después de 2 segundos"), 2000);
+
+        /*
+        Esto puede llegar a sorprender a desarrolladores que llegan de otros lenguajes considerados bloqueantes; 
+        Javascript sin embargo se considera un lenguaje asíncrono y no bloqueante. 
+        ¿Qué significa esto? Al ejecutar la línea del setTimeout(), 
+        el programa no se queda bloqueado esperando a que terminen los 2 segundos y se ejecute la función callback, sino que continúa con el flujo general del programa para volver más adelante cuando sea necesario a ejecutar el callback, 
+        aprovechando así mejor el tiempo y realizando tareas de forma asíncrona.*/
+
+    </script>
+</body>
+
+</html>
