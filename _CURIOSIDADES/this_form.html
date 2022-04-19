@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+</head>
+<body>
+    <button name="boton" onclick="alert(this)">Haz click y te digo que elemento es this</button>
+    <form action="#">
+        <button name="boton2" onclick="alert(this)">[DENTRO FORM] Haz click y te digo que elemento es this</button>
+    </form>
+    <form action="#" name="form2">
+        <button name="boton2" onclick="alert(this.form)">[DENTRO FORM] Haz click y te digo que elemento es this.form</button>
+    </form>
+    <form action="#" id="form3">
+        <button name="boton2" onclick="alert(this.form.id)">[DENTRO FORM] Haz click y te digo que elemento es this.form.id</button>
+    </form>
+    <script>
+        console.log(this); //object window
+
+        console.log(this.form); //undefined
+        console.log(this.forms); //undefined
+        console.log(document.form); //undefined
+        console.log(document.forms); //HTMLCollections
+        console.log(document["form2"]); //Devuelve el segundo formulario <form ...>
+        console.log(document["form3"]); //undefined
+        console.log(document.forms[0]); //Devuelve el primer formulario
+        console.log(document.forms.form2); //Devuelve el segundo formulario
+        console.log(document.querySelector("#form3")); //Devuelve el tercer formulario
+        console.log(document.form2);//devuelve el segundo formulario
+        console.log(document.form2.elements);//HTMLFormControlsCollection
+    </script>
+</body>
+</html>
