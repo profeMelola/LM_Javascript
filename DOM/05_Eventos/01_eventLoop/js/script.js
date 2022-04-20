@@ -24,6 +24,9 @@ function myFunctionC() {
 myFunctionA();
 
 //Handler para capturar el click en el botón
-function capturaClick() {
+function capturaClick(e) {
+    console.log("ELEMENTO DONDE SE HA PRODUCIDO EL EVENTO:"+e.target);
+    console.log("ID:"+e.target.id);
+    console.log("NAME:"+e.target.name);
     console.log("He capturado el click del botón");
 }

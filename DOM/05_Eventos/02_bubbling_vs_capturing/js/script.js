@@ -1,5 +1,5 @@
 
-//Handler para mostrar la información. Nos va a servir tanto para
+//Handler para mostrar la información
 function showContent(e) {
    console.log(e);
    alert("El elemento se originó en "+e.target.id+" y ahora estoy en "+this.id);
