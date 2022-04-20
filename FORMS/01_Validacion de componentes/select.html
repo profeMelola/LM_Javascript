@@ -19,26 +19,25 @@
 			function addOpcion(nombre, valor){
 				const select = document.getElementById('miSelect');
 
-				/*
 				// Primera forma
 				let newOpt = new Option(nombre.value,valor.value);
 
 				if (select != null){
 					select.append(newOpt);
-					select.options[select.length - 1].selected =  true;
+					//select.options[select.length - 1].selected =  true;
+					newOpt.selected = true;
 				}
-				*/
 				
 				
 				// Segunda forma
-				let longitud = select.length;
-				select.length = longitud + 1; //tengo que ampliar la longitud del select +1 por el elemento nuevo que voy a añadir
-				console.log(longitud);
-				if (select != null){
-					select.options[longitud].value=valor.value;
-					select.options[longitud].text=nombre.value;
-					select.options[select.length -1].selected =  true;
-				}
+				// let longitud = select.length;
+				// select.length = longitud + 1; //tengo que ampliar la longitud del select +1 por el elemento nuevo que voy a añadir
+				// console.log(longitud);
+				// if (select != null){
+				// 	select.options[longitud].value=valor.value;
+				// 	select.options[longitud].text=nombre.value;
+				// 	select.options[select.length -1].selected =  true;
+				// }
 				
 
 			}

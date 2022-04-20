@@ -18,12 +18,27 @@
         //Obtener elementos del array que empiecen por una letra concreta
         //filter: extrae varios elementos
         function nombresEmpiecenPor(letra){
+            console.log("[nombresEmpiecenPor] letra:"+letra);
+            console.log("forma 1");
             console.log(losSimpson.filter(nombre => nombre[0] === letra));
+
+            console.log("forma 2");
+            for(let i=0;i<losSimpson.length;i++){
+                const nombre = losSimpson[i];
+                if (nombre[0] === letra) console.log(nombre);
+            }
+
+            console.log("forma 3");
+            for(const nombre of losSimpson){
+                if (nombre[0] === letra) console.log(nombre);
+            }
+
         }
 
         //Obtener primer elemento que empiece por M
         //find: extrae solo un elemento
         function primerNombreEmpiecePor(letra){
+            console.log("******************");
             console.log(losSimpson.find( nombre => nombre[0] === letra));
         }
 
@@ -61,22 +76,26 @@
         //Devolver false si todos los nombres no contienen la letra a
         //every: igual que some pero debe cumplirse siempre
         function contienenTodosLetra(letra){
+            console.log("----------- SI TODOS ELEM CUMPLE CONDICIÓN (every) --------");
             console.log(losSimpson.every( nombre => nombre[0] === letra));
         }
 
         //Preguntar si existe una cadena concreto (independientemente de si está en may o min)
         //some: te dice si un array cumple la condición en algún momento
         function contieneAlgunoPalabra(palabra){
+            console.log("----------- SI ALGÚN ELEM CUMPLE CONDICIÓN (some) --------");
             console.log(losSimpson.some( nombre => nombre.toLowerCase() === palabra.toLowerCase()));
         }
         //includes: busca si existe un elemento dentro de un array
         function contiene(elemento){
+            console.log("----------- SI EXISTE ELEMENTO EN EL ARRAY (includes) --------");
             console.log(losSimpson.includes(elemento));
 
         }
 
         //Concatenar dos array
         function unirArray(uno,dos){
+            console.log("----------- UNIR ARRAYS --------");
             //Primera forma
             console.log(uno.concat(dos));
             //Segunda forma
@@ -85,16 +104,19 @@
 
         //Obtener un subarray
         function cortarArray(posInit, posEnd){
+            console.log("----------- CREA SUBSTRING --------");
             console.log(losSimpson.slice(posInit,posEnd));
         }
 
         //Unir en un string todos los elementos del array por un separador
         function unirElementos(separador){
+            console.log("----------- CREA STRING A PARTIR DE UN ARRAY --------");
             console.log(losSimpson.join(separador));
         }
 
         //Separar en un array una cadena de texto (por un separador)
         function creaArray(cadena, separador){
+            console.log("----------- CREA ARRAY A PARTIR DE UN STRING --------");
             console.log(cadena.split(separador));
         }
 

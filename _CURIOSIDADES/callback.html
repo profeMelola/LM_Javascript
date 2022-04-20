@@ -40,6 +40,7 @@
         el programa no se queda bloqueado esperando a que terminen los 2 segundos y se ejecute la función callback, sino que continúa con el flujo general del programa para volver más adelante cuando sea necesario a ejecutar el callback, 
         aprovechando así mejor el tiempo y realizando tareas de forma asíncrona.*/
 
+        
         //alert(document.querySelector("#callback-btn")); //null, no se ha cargado el HTML
 
         
@@ -58,10 +59,9 @@
         y el segundo parámetro es una función callback, que registra el mensaje cuando el botón es pulsado
         */
 
-        alert(document.querySelector("#callback-btn"));
+        //alert(document.querySelector("#callback-btn"));
 
         document.querySelector("#callback-btn").addEventListener("click", function () {
-                alert("clic");
                 console.log("El usuario ha hecho clic en el botón.");
             });        
 
