@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Variables globales
+        const baseDeDatos = []; //Array con los objetos productos. Simula la carga de los productos desde una base de datos
+        let jsonBD; //String con los productos en formato JSON
+
+        //Función que pinta por consola la información de cada producto
+        function printBD(){
+            baseDeDatos.forEach( info => {
+                console.log("*********** INFO PRODUCTO *************");
+                console.log("ID: "+info.id);
+                console.log("NOMBRE: "+info.nombre);
+                console.log("PRECIO: "+info.precio);
+                console.log("PATH IMAGEN: "+info.imagen);
+                console.log("SLOGAN: "+info.getSlogan());
+                console.log("***************************************")
+            });
+        }
+
+        function getJson(){
+            jsonBD = JSON.stringify(baseDeDatos); //se obtiene un string
+            console.log(jsonBD);
+        }
+
+        // --------------------------------------------------------------
+        // Antes de ECMAScript 2015
+        // OBJETOS CREADOS COMO FUNCIONES
+        // Ejemplo de un producto para nuestro carrito de la compra
+        function Producto(id,nombre, precio, imagen){
+            this.id = id;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.imagen = imagen;            
+
+            this.getSlogan = function () {
+                return `OFERTA!!! ${this.nombre} tiene un precio ${this.precio}`;
+            }
+        }
+
+        const calabacin = new Producto(3,'Calabacin',2.1,'imgs/calabacin.jpg');
+
+        console.log(calabacin.getSlogan());
+
+        baseDeDatos.push(calabacin);
+
+        getJson();
+
+        // ---------------------------------------------------------------------
+        /*
+            Aunque Javascript no soporta clases de forma nativa, en ECMAScript 2015  
+            se introduce la posibilidad de usar clases como en otros lenguajes, 
+            aunque internamente Javascript traduce estas clases al sistema basado en prototipos que usa en realidad. 
+            Para los programadores funciona a modo de azúcar sintáctico, es decir, 
+            sólo «endulza» la forma de trabajar para que sea más agradable para nosotros.        
+        */
+        class ProductoClass {
+            constructor(id,nombre, precio, imagen) {
+                this.id = id;
+                this.nombre = nombre;
+                this.precio = precio;
+                this.imagen = imagen;
+            }
+
+            getSlogan() {
+                return `OFERTÓN!!! ${this.nombre} tiene un precio ${this.precio}`;
+            }
+        }
+
+        const patata = new ProductoClass(1, 'Patata',1, 'imgs/patata.jpg');
+        const cebolla = new ProductoClass(2, 'Cebolla',1.2, 'imgs/cebolla.jpg');
+
+        baseDeDatos.push(patata);
+        baseDeDatos.push(cebolla);
+
+        printBD(baseDeDatos);
+        getJson();
+
+    </script>
+</body>
+
+</html>
