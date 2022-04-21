@@ -14,6 +14,3 @@ function calcularAleatorio(numero) {
 
 
 console.log(calcularAleatorio(10));
-console.log(calcularAleatorio(10));
-console.log(calcularAleatorio(10));
-console.log(calcularAleatorio(10));
