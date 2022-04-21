@@ -17,8 +17,11 @@
 
         //Obtener elementos del array que empiecen por una letra concreta
         //filter: extrae varios elementos
+        nombresEmpiecenPor('M');
+
         function nombresEmpiecenPor(letra){
             console.log("[nombresEmpiecenPor] letra:"+letra);
+            
             console.log("-------- forma 1 ---------");
             const arrayResultado = losSimpson.filter(nombre => nombre[0] === letra)
             console.log(arrayResultado);
@@ -30,31 +33,42 @@
             }
 
             console.log("-------- forma 3 -------");
+            let nuevoArray = [];
             for(const nombre of losSimpson){
-                if (nombre[0] === letra) console.log(nombre);
+                if (nombre[0] === letra) {
+                    console.log(nombre);
+                    nuevoArray.push(nombre);
+                }
             }
+            console.log(nuevoArray);
 
         }
 
         //Obtener primer elemento que empiece por M
         //find: extrae solo un elemento
+        primerNombreEmpiecePor('M');
+
         function primerNombreEmpiecePor(letra){
             console.log("******* EJEMPLO CON .FIND ***********");
-            const arrayResultado = losSimpson.find( nombre => nombre[0] === letra);
-            console.log(arrayResultado);
+            const resultado = losSimpson.find( nombre => nombre[0] === letra);
+            console.log(resultado);
         }
 
         //Contar cuantas letras suman todos los nombres del array
         //reduce: calcula un valor que devuelve
         // El segundo parámetro es el valor inicial
+        contarLetrasNombres();
+
         function contarLetrasNombres(){
             console.log("******* EJEMPLO CON .REDUCE ***********");
-            const arrayResultado = losSimpson.reduce( (total,nombre) => total + nombre.length,0 );
-            console.log(arrayResultado);
+            const resultado = losSimpson.reduce( (total,nombre) => total + nombre.length,0 );
+            console.log(resultado);
         }
 
         //Convertir todos los nombres a mayúsculas
         //map: transforma el contenido de un array
+        convertirNombresMay();
+
         function convertirNombresMay(){
             console.log("******* EJEMPLO CON .MAP ***********");
             const arrayResultado = losSimpson.map(nombre => nombre.toUpperCase());
@@ -66,6 +80,7 @@
             console.log(arrayResultado2);
 
             arrayResultado2 = arrayResultado.find( nombre => nombre[0] === 'A');
+            console.log(arrayResultado2);
             console.log(arrayResultado2 ?? "No se ha encontrado empezando por A");
 
             //Operador Nullish Coalescing '??' https://es.javascript.info/nullish-coalescing-operator
@@ -76,6 +91,8 @@
 
         //Rellenar un array con un valor concreto
         //fill: sustituye todo el contenido de un array con un nuevo contenido
+        rellenaArray(4,"Mari");
+
         function rellenaArray(numero, valor){
             console.log("******* EJEMPLO CON .FILL ***********");
             const arrayResultado = Array(numero).fill(valor);
@@ -84,11 +101,14 @@
 
         //Mostrar cuantas letras contiene cada nombre
         //forEach: recorre un array obteniendo su posición y valor
+        contarLetrasCadaNombre();
+
         function contarLetrasCadaNombre(){
             console.log("******* EJEMPLO CON .FOR EACH (1) ***********");
             losSimpson.forEach(nombre => console.log(`${nombre} contiene ${nombre.length}`));
         }
 
+        contarLetrasCadaNombrePosicion();
         function contarLetrasCadaNombrePosicion(){
             console.log("******* EJEMPLO CON .FOR EACH (2) ***********");
             losSimpson.forEach( (nombre,posicion) => {
@@ -98,6 +118,8 @@
 
         //Devolver false si todos los nombres no contienen la letra a
         //every: igual que some pero debe cumplirse siempre
+        contienenTodosLetra('a');
+
         function contienenTodosLetra(letra){
             console.log("******* EJEMPLO CON .EVERY ***********");
             console.log("----------- SI TODOS ELEM CUMPLE CONDICIÓN (every) --------");
@@ -107,13 +129,18 @@
 
         //Preguntar si existe una cadena concreto (independientemente de si está en may o min)
         //some: te dice si un array cumple la condición en algún momento
+        contieneAlgunoPalabra("Maggie");
+
         function contieneAlgunoPalabra(palabra){
             console.log("******* EJEMPLO CON .SOME ***********");
             console.log("----------- SI ALGÚN ELEM CUMPLE CONDICIÓN (some) --------");
             const resultado = losSimpson.some( nombre => nombre.toLowerCase() === palabra.toLowerCase());
             console.log(resultado);
         }
+
         //includes: busca si existe un elemento dentro de un array
+        contiene("Bart");
+
         function contiene(elemento){
             console.log("******* EJEMPLO CON .INCLUDES ***********");
             console.log("----------- SI EXISTE ELEMENTO EN EL ARRAY (includes) --------");
@@ -123,6 +150,8 @@
         }
 
         //Concatenar dos array
+        unirArray(['Homer', 'Marge'],['Lisa', 'Bart', 'Maggie']);
+
         function unirArray(uno,dos){
             console.log("----------- UNIR ARRAYS --------");
             //Primera forma
@@ -132,38 +161,28 @@
         }
 
         //Obtener un subarray
+        cortarArray(1,3);
+
         function cortarArray(posInit, posEnd){
             console.log("----------- CREA SUBSTRING --------");
             console.log(losSimpson.slice(posInit,posEnd));
         }
 
         //Unir en un string todos los elementos del array por un separador
+        unirElementos('-');
+
         function unirElementos(separador){
             console.log("----------- CREA STRING A PARTIR DE UN ARRAY --------");
             console.log(losSimpson.join(separador));
         }
 
         //Separar en un array una cadena de texto (por un separador)
+        creaArray('Homer-Marge-Lisa-Bart-Maggie','-');
+
         function creaArray(cadena, separador){
             console.log("----------- CREA ARRAY A PARTIR DE UN STRING --------");
             console.log(cadena.split(separador));
         }
-
-        // Llamada a las funciones ejemplo
-        nombresEmpiecenPor('M');
-        primerNombreEmpiecePor('M');
-        contarLetrasNombres();
-        convertirNombresMay();
-        rellenaArray(4,"Mari");
-        contarLetrasCadaNombre();
-        contarLetrasCadaNombrePosicion();
-        contienenTodosLetra('a');
-        contieneAlgunoPalabra("Maggie");
-        contiene("Bart");
-        unirArray(['Homer', 'Marge'],['Lisa', 'Bart', 'Maggie']);
-        cortarArray(1,3);
-        unirElementos('-');
-        creaArray('Homer-Marge-Lisa-Bart-Maggie','-');
 
     </script>
 </body>
