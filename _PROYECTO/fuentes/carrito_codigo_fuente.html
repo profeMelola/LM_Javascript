@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)file:///E:/VisualStudioWorkspace/LM/LOCAL/3%20EV/CarritosCompra/CarritoCompra/carrito.html -->
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title></title>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./carrito_salida_files/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row">
+                <div class="card col-sm-4">
+                    <div class="card-body"><img class="img-fluid" src="./carrito_salida_files/patata.jpg">
+                        <h5 class="card-title">Patata</h5>
+                        <p class="card-text">1€</p><button class="btn btn-primary" marcador="1">+</button>
+                    </div>
+                </div>
+                <div class="card col-sm-4">
+                    <div class="card-body"><img class="img-fluid" src="./carrito_salida_files/cebolla.jpg">
+                        <h5 class="card-title">Cebolla</h5>
+                        <p class="card-text">1.2€</p><button class="btn btn-primary" marcador="2">+</button>
+                    </div>
+                </div>
+                <div class="card col-sm-4">
+                    <div class="card-body"><img class="img-fluid" src="./carrito_salida_files/calabacin.jpg">
+                        <h5 class="card-title">Calabacin</h5>
+                        <p class="card-text">2.1€</p><button class="btn btn-primary" marcador="3">+</button>
+                    </div>
+                </div>
+                <div class="card col-sm-4">
+                    <div class="card-body"><img class="img-fluid" src="./carrito_salida_files/fresas.jpg">
+                        <h5 class="card-title">Fresas</h5>
+                        <p class="card-text">0.6€</p><button class="btn btn-primary" marcador="4">+</button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+
+                <h2>Carrito</h2>
+
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group">
+                    <li class="list-group-item text-right mx-2">2 x Calabacin - 2.1€<button class="btn btn-danger mx-5"
+                            data-item="3" style="margin-left: 1rem;">X</button></li>
+                    <li class="list-group-item text-right mx-2">1 x Cebolla - 1.2€<button class="btn btn-danger mx-5"
+                            data-item="2" style="margin-left: 1rem;">X</button></li>
+                    <li class="list-group-item text-right mx-2">1 x Patata - 1€<button class="btn btn-danger mx-5"
+                            data-item="1" style="margin-left: 1rem;">X</button></li>
+                    <li class="list-group-item text-right mx-2">3 x Fresas - 0.6€<button class="btn btn-danger mx-5"
+                            data-item="4" style="margin-left: 1rem;">X</button></li>
+                </ul>
+
+
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total">8.20</span>€</p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+
+
+
+</body>
+
+</html>
