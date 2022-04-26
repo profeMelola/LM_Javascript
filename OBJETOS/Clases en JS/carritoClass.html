@@ -17,13 +17,13 @@
 
         //Función que pinta por consola la información de cada producto
         function printBD(){
-            baseDeDatos.forEach( info => {
+            baseDeDatos.forEach( producto => {
                 console.log("*********** INFO PRODUCTO *************");
-                console.log("ID: "+info.id);
-                console.log("NOMBRE: "+info.nombre);
-                console.log("PRECIO: "+info.precio);
-                console.log("PATH IMAGEN: "+info.imagen);
-                console.log("SLOGAN: "+info.getSlogan());
+                console.log("ID: "+producto.id);
+                console.log("NOMBRE: "+producto.nombre);
+                console.log("PRECIO: "+producto.precio);
+                console.log("PATH IMAGEN: "+producto.imagen);
+                console.log("SLOGAN: "+producto.getSlogan());
                 console.log("***************************************")
             });
         }

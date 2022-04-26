@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos JS</title>
+    <style>
+        div{
+            border:3px solid blue;
+        }
+        p{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<body onload="asignar_clic()">-->
+    <h1>PRUEBA GESTIÓN DE EVENTOS EN JS</h1>
+    <div id="importante">
+        <p>Primer párrafo</p>
+        <p>Segundo párrafo</p>
+    </div>
+    <p>tercer párrafo</p>
+</body>
+<script>
+
+    function alertarGeneral(param){
+        alert("Has hecho clik en el "+param+" párrafo importante!!")
+    }
+
+    function asignar_clic() {
+        
+        //bind: Cuando se ejecuta sobre una función dada, 
+        //creamos una nueva función que nos permite manipular tanto su valor this 
+        //como los parámetros que espera.
+
+        // PRIMERA FORMA: con manejadores de eventos
+        const elems = document.querySelectorAll("#importante p");
+        elems[1].onclick = alertarGeneral.bind(this,"2");
+        
+
+        // SEGUNDA FORMA: con escuchadores
+        const elem = document.querySelectorAll("#importante p")[0];
+        elem.addEventListener("click", alertarGeneral.bind(this,"1"));
+        
+    }
+
+    window.onload = asignar_clic;
+</script>
+</html>

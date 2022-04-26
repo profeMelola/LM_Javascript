@@ -1,6 +1,7 @@
 
 // --------------------------------------------
 // ----------------- INLINE -------------------
+// Como solo hay una propiedad onclick, no podemos asignar más de un handler.
 // --------------------------------------------
 //Función para el inline handler
 function changeColor(e){
@@ -19,22 +20,44 @@ function changeColor2(e,cadena,elemento) {
 
 // --------------------------------------------
 // --------------- MANEJADOR ------------------
+// Como solo hay una propiedad onclick, no podemos asignar más de un handler.
 // --------------------------------------------
+
 //Obtengo el elemento
 const example = document.getElementById("example");
 
+// FORMA 1: Con funciones normales
 //Defino la función manejador
-function doSomething(e) {
-    console.log("He hecho click en el DIV con ID Example");
-    e.target.style.backgroundColor = "green";
-}
+// function doSomething(e) {
+//     console.log("He hecho click en el DIV con ID Example");
+//     e.target.style.backgroundColor = "green";
+// }
 
 //Asigno dicha función mediante la propiedad de evento
-example.onclick = doSomething;
+//example.onclick = doSomething;
+
+// FORMA 2: Con función anónima (callback)
+// example.onclick = function (e){
+//     console.log("He hecho click en el DIV con ID Example (callback)");
+//     e.target.style.backgroundColor = "green";
+// };
+
+// FORMA 3: Con función flecha
+example.onclick = e =>{
+     console.log("He hecho click en el DIV con ID Example (arrow)");
+     e.target.style.backgroundColor = "green";
+}
+
+// NOTA: Para eliminar un handler, asigna elem.onclick = null.
+//example.onclick = null;
+
 // --------------------------------------------
 
 // --------------------------------------------
 // --------------- ESCUCHADOR -----------------
+// El problema fundamental de las formas ya mencionadas para asignar handlers 
+// es que no podemos asignar multiples handlers a un solo evento.
+// https://es.javascript.info/introduction-browser-events
 // --------------------------------------------
 //Obtengo el elemento
 let listener = document.getElementById("listener");

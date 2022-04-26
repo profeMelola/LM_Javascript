@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de múltiples funciones al mismo evento</title>
+</head>
+<body>
+
+    <div id="div_principal" style="background-color: azure;border: 1px solid black">
+        <p>Haz click en el div</p>
+    </div>
+
+    <script>
+        function muestraMensaje() {
+        alert("Has pulsado el ratón");
+        }
+        
+        function muestraOtroMensaje() {
+        alert("Has pulsado el ratón y por eso se muestran estos mensajes");
+        }
+        
+        var elDiv = document.getElementById("div_principal");
+
+        elDiv.onclick = () => alert("Detectado manejador onclick");
+        elDiv.addEventListener("click", muestraMensaje);
+        elDiv.addEventListener("click", muestraOtroMensaje);        
+    </script>
+</body>
+</html>

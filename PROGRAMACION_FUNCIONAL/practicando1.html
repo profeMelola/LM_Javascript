@@ -9,7 +9,8 @@
 <body>
     <script>
         /*
-         * Programa una función que devuelva la suma total de caracteres de las palabras del array que contengan la letra 'R'.
+         * Programa una función que devuelva la suma total de caracteres de las palabras 
+         * del array que contengan la letra 'R'.
          * No debe ser case-sensitive, por tanto rojo y verde si contienen la letra R
          * Puedes hacerlo con programación funcional y funciones flecha o de forma tradicional
          * Pista: utiliza la función includes de String
@@ -17,12 +18,51 @@
 
         const arrayRGB = ["rojo","verde","azul"];
 
+
         // SOLUCIÓN FUNCIONAL
         function moderna(letra){
+
+
+            /*
+            // Array con aquellos colores que contienen la letra r
+            const arrayConR = arrayRGB.filter( color => color.toUpperCase().includes(letra.toUpperCase()) );
+            console.log(arrayConR);
+
+            
+            // reduce::::::: Recorrer todos los elementos del array, e ir acumulando 
+            //sus valores 
+            // (o alguna operación diferente) y sumarlo todo, 
+            // para devolver su resultado final.
+            // Contar el número de caracteres de las palabras de arrayConR
+
+            const resultado = arrayConR.reduce( (total,color) => total + color.length,0 );
+
+            return resultado;
+            */
+
+            return arrayRGB.filter( color => color.toUpperCase().includes(letra) ).reduce( (total,color) => total + color.length,0 );
+
+            
         }
 
         // SOLUCIÓN TRADICIONAL
         function tradicional(letra){
+            const arrayResultado = [];
+            let sumatorio = 0;
+            
+            for(const color of arrayRGB){
+                if (color.toUpperCase().includes(letra.toUpperCase())) {
+                    //arrayResultado.push(color);
+                    sumatorio += color.length;
+                }
+                    
+            }
+            
+            /*for (const color of arrayResultado){
+                sumatorio += color.length;
+            }*/
+
+            return sumatorio;
         }
 
         console.log("Resultado llamando a la función con estilo moderno de programación: "+moderna('R'));
