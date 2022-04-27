@@ -22,6 +22,9 @@ function changeColor2(e,cadena,elemento) {
 // --------------------------------------------
 // --------------- MANEJADOR (event handler) ---
 // Como solo hay una propiedad onclick, no podemos asignar más de un handler.
+//Por ejemplo:
+//input.onclick = function() { alert(1); }
+//input.onclick = function() { alert(2); } // reemplaza el handler anterior handler
 // --------------------------------------------
 
 //Obtengo el elemento
