@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="elem">
-      <div id="elem-content">Elemento</div>
+      <div id="elemId">Elemento</div>
     </div>
     
     <script>
@@ -26,16 +26,16 @@
       // hacer que su fondo sea rojo
       elem.style.background = 'red';
 
-      
-      //DOS FORMAS DE ACCEDER A UN ELEMENTO CON IDENTIFICADOR ÚNICO
+      // --------------------------------------------------------------
+      //TRES FORMAS DE ACCEDER A UN ELEMENTO CON IDENTIFICADOR ÚNICO
       //1. 
-      alert(window['elem-content']);
+      alert("1."+window['elemId']);
 
       //2.
-      alert(document.getElementById("elem-content"));
+      alert("2."+document.getElementById("elemId"));
 
-      //let elem-content= document.getElementById("elem-content");// NOTA: No podemos crear variables con el - en el nombre. Da error
-
+      //3.
+      alert("3."+elemId);
      
     </script>
     </body>

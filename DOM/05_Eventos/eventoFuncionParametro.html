@@ -45,6 +45,8 @@
         // SEGUNDA FORMA: con escuchadores
         const elem = document.querySelectorAll("#importante p")[0];
         elem.addEventListener("click", alertarGeneral.bind(this,"1"));
+
+        //elem.addEventListener("click",alertarGeneral("1")); //Esto no funciona. No se puede pasar así los parámetros
         
     }
 
