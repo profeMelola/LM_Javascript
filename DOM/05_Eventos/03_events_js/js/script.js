@@ -15,6 +15,7 @@ function changeColor2(e,cadena,elemento) {
     e.target.style.backgroundColor = "yellow";
 
     console.log("elemento:"+elemento);
+    elemento.style.backgroundColor = "black";
     console.log("background del elemento:"+elemento.style.backgroundColor);
 }
 // --------------------------------------------
@@ -32,10 +33,10 @@ const example = document.getElementById("example");
 
 // FORMA 1: Con funciones normales
 //Defino la función manejador
- //function doSomething(e) {
- //    console.log("He hecho click en el DIV con ID Example");
- //    e.target.style.backgroundColor = "green";
- //}
+//function doSomething(e) {
+//     console.log("He hecho click en el DIV con ID Example");
+//     e.target.style.backgroundColor = "green";
+// }
 
 //Asigno dicha función mediante la propiedad de evento
 //example.onclick = doSomething;
@@ -53,7 +54,7 @@ example.onclick = e =>{
 };
 
 // NOTA: Para eliminar un handler, asigna elem.onclick = null.
-example.onclick = null;
+//example.onclick = null;
 
 // --------------------------------------------
 

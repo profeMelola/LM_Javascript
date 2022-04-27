@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>CARRITO: trabajando con clases</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    
+<body>
+    <div class="container">
+        <div class="row">
+
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+
+        </div>
+    </div>    
+    <script>
+        // Variables globales
+        const baseDeDatos = []; //Array con los objetos productos. Simula la carga de los productos desde una base de datos
+        let jsonBD; //String con los productos en formato JSON
+
+        // --------------------------
+        // Usando clases ECS6
+        class ProductoClass {
+            constructor(id, nombre, precio, imagen) {
+                this.id = id;
+                this.nombre = nombre;
+                this.precio = precio;
+                this.imagen = imagen;
+            }
+
+            getSlogan() {
+                return `OFERTÓN!!! ${this.nombre} tiene un precio ${this.precio}`;
+            }
+        }
+
+        const patata = new ProductoClass(1, 'Patata', 1, 'imgs/patata.jpg');
+        const cebolla = new ProductoClass(2, 'Cebolla', 1.2, 'imgs/cebolla.jpg');
+        //-----------------
+
+        // -----------------
+        // Usando objetos ECS5
+        function Producto(id,nombre, precio, imagen){
+            this.id = id;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.imagen = imagen;            
+
+            this.getSlogan = function () {
+                return `OFERTA!!! ${this.nombre} tiene un precio ${this.precio}`;
+            }
+        }
+
+        const calabacin = new Producto(3,'Calabacin',2.1,'imgs/calabacin.jpg');
+
+        // -------------------
+
+        baseDeDatos.push(patata); //creado con class
+        baseDeDatos.push(cebolla); //creado con class
+        baseDeDatos.push(calabacin); //creado con function
+        /*baseDeDatos.push({
+        id: 4,
+        nombre: 'Fresas',
+        precio: 0.6,
+        imagen: 'imgs/fresas.jpg'
+        });*/
+
+
+        printBD();
+        getJson();
+
+        //Función que pinta por consola la información de cada producto
+        function printBD() {
+            baseDeDatos.forEach(prod => {
+                console.log("*********** INFO PRODUCTO *************");
+                console.log("ID: " + prod.id);
+                console.log("NOMBRE: " + prod.nombre);
+                console.log("PRECIO: " + prod.precio);
+                console.log("PATH IMAGEN: " + prod.imagen);
+                console.log("SLOGAN: " + prod.getSlogan());
+                console.log("***************************************")
+            });
+        }
+
+        //Función que convierte el array a un JSON
+        function getJson() {
+            jsonBD = JSON.stringify(baseDeDatos); //se obtiene un string
+            console.log(jsonBD);
+        }
+
+        //Función para pintar los productos
+        function renderizarProductos() {
+            baseDeDatos.forEach( prod => {
+                // Estructura
+                const miNodo = document.createElement('div');
+                miNodo.classList.add('card', 'col-sm-4');
+
+                // Body
+                const miNodoCardBody = document.createElement('div');
+                miNodoCardBody.classList.add('card-body');
+
+                // Titulo
+                const miNodoTitle = document.createElement('h5');
+                miNodoTitle.classList.add('card-title');
+                miNodoTitle.textContent = prod.nombre;
+
+                // Imagen
+                const miNodoImagen = document.createElement('img');
+                miNodoImagen.classList.add('img-fluid');
+                miNodoImagen.setAttribute('src', prod.imagen);
+
+                // Precio
+                const miNodoPrecio = document.createElement('p');
+                miNodoPrecio.classList.add('card-text');
+                miNodoPrecio.textContent = `${prod.precio}${divisa}`;
+
+                // Boton 
+                const miNodoBoton = document.createElement('button');
+                miNodoBoton.classList.add('btn', 'btn-primary');
+                miNodoBoton.textContent = '+';
+                miNodoBoton.setAttribute('marcador', prod.id);
+                miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+
+                // Boton INFO
+                const miNodoBotonInfo = document.createElement('button');
+                miNodoBotonInfo.classList.add('btn', 'btn-primary');
+                miNodoBotonInfo.textContent = 'Ver oferta';
+                miNodoBotonInfo.addEventListener('click', showSlogan.bind(this, prod.getSlogan()));
+
+                // Insertamos
+                miNodoCardBody.appendChild(miNodoImagen);
+                miNodoCardBody.appendChild(miNodoTitle);
+                miNodoCardBody.appendChild(miNodoPrecio);
+                miNodoCardBody.appendChild(miNodoBoton);
+                miNodoCardBody.appendChild(miNodoBotonInfo);
+
+                miNodo.appendChild(miNodoCardBody);
+                DOMitems.appendChild(miNodo);
+            });
+        }
+
+    /**
+     * Funciones de eventos
+     */
+     function anyadirProductoAlCarrito(evento) {
+    }
+
+    function showSlogan(slogan){
+        alert(slogan);
+    }
+
+    // Inicio
+    const divisa = '€';
+    const DOMitems = document.querySelector('#items');
+
+    renderizarProductos(); //para cargar los productos en el main con id="items"
+
+
+
+    </script>
+</body>
+
+</html>

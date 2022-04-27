@@ -27,8 +27,8 @@
 </body>
 <script>
 
-    function alertarGeneral(param){
-        alert("Has hecho clik en el "+param+" párrafo importante!!")
+    function alertarGeneral(param,e){
+        alert("Has hecho clik en el "+param+" párrafo importante!! y esto es e:"+e)
     }
 
     function asignar_clic() {
@@ -40,6 +40,12 @@
         // PRIMERA FORMA: con manejadores de eventos
         const elems = document.querySelectorAll("#importante p");
         elems[1].onclick = alertarGeneral.bind(this,"2");
+
+        /*
+        for(let i=0;elems.length;i++){
+            elems[i].onclick = alertarGeneral.bind(this,i+1);
+        }*/
+
         
 
         // SEGUNDA FORMA: con escuchadores
@@ -51,5 +57,6 @@
     }
 
     window.onload = asignar_clic;
+    //window.addEventListener("load",asignar_clic); //es lo mismo
 </script>
 </html>
