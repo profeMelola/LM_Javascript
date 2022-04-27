@@ -9,6 +9,7 @@
 
 <body>
     <h1>Ejemplo de delegación de eventos</h1>
+    <div id="container2"></div>
     <div id="container">
         <div class="pane">
             <h3>Horse</h3>
@@ -45,13 +46,20 @@
     </div>
 
     <script>
-        container.onclick = function (event) {
-            /*if (event.target.className != 'remove-button') return;
 
+        /*container.onclick = function (event) {
             //closest: devuelve el ancestro más cercano que coincide con el selector
-            let pane = event.target.closest('.pane');
-            pane.remove();*/
+            if (event.target.className === 'remove-button')
+                event.target.closest('.pane').remove();
+            else
+                alert("No se puede borrar el párrafo");
 
+        };*/
+
+
+        const c = document.getElementById("container");
+        c.onclick = function (event) {
+            //closest: devuelve el ancestro más cercano que coincide con el selector
             if (event.target.className === 'remove-button')
                 event.target.closest('.pane').remove();
             else

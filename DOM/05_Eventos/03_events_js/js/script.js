@@ -6,7 +6,8 @@
 //Función para el inline handler
 function changeColor(e){
     console.log("He hecho CLICK en el evento con el manejado INLINE");
-    e.target.style.backgroundColor = "red";
+    //e.target.style.backgroundColor = "red";
+    document.querySelector('.container>p').style.backgroundColor = "red";
 }
 
 function changeColor2(e,cadena,elemento) {
@@ -19,7 +20,7 @@ function changeColor2(e,cadena,elemento) {
 // --------------------------------------------
 
 // --------------------------------------------
-// --------------- MANEJADOR ------------------
+// --------------- MANEJADOR (event handler) ---
 // Como solo hay una propiedad onclick, no podemos asignar más de un handler.
 // --------------------------------------------
 
@@ -28,28 +29,28 @@ const example = document.getElementById("example");
 
 // FORMA 1: Con funciones normales
 //Defino la función manejador
-// function doSomething(e) {
-//     console.log("He hecho click en el DIV con ID Example");
-//     e.target.style.backgroundColor = "green";
-// }
+ //function doSomething(e) {
+ //    console.log("He hecho click en el DIV con ID Example");
+ //    e.target.style.backgroundColor = "green";
+ //}
 
 //Asigno dicha función mediante la propiedad de evento
 //example.onclick = doSomething;
 
 // FORMA 2: Con función anónima (callback)
-// example.onclick = function (e){
-//     console.log("He hecho click en el DIV con ID Example (callback)");
-//     e.target.style.backgroundColor = "green";
-// };
+//  example.onclick = function (e){
+//      console.log("He hecho click en el DIV con ID Example (callback)");
+//      e.target.style.backgroundColor = "green";
+//  };
 
 // FORMA 3: Con función flecha
 example.onclick = e =>{
      console.log("He hecho click en el DIV con ID Example (arrow)");
      e.target.style.backgroundColor = "green";
-}
+};
 
 // NOTA: Para eliminar un handler, asigna elem.onclick = null.
-//example.onclick = null;
+example.onclick = null;
 
 // --------------------------------------------
 

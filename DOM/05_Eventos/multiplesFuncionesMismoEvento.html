@@ -21,7 +21,7 @@
         alert("Has pulsado el ratón y por eso se muestran estos mensajes");
         }
         
-        var elDiv = document.getElementById("div_principal");
+        const elDiv = document.getElementById("div_principal");
 
         elDiv.onclick = () => alert("Detectado manejador onclick");
         elDiv.addEventListener("click", muestraMensaje);
