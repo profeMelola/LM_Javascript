@@ -100,7 +100,15 @@
 
     <h1>5. Ejemplo captura de estilos (haz clic en el cuadrado)</h1>
     <div class="divColor">
-    </div>    
+    </div>  
+    
+    <div id="bucle">
+        <h1>6. Ejemplo para añadir eventos en bucle (clic)</h1>
+        <p style="background-color: blueviolet;">Párrafo 1</p>
+        <p style="background-color: aquamarine;">Párrafo 2</p>
+        <p style="background-color: pink">Párrafo 3</p>
+    </div>  
+    
 
     <script>
         // ------------------- PAGE X + PAGE Y --------------------------------
@@ -150,8 +158,7 @@
             e.target.style.height = (dim - 150) + "px";
         });
 
-        // -----------------------------------------------
-
+        // -------------------- CAMBIAR COLORES ---------------------------
         document.querySelector(".divColor").onclick = gestionarColor;
 
         function gestionarColor(e){
@@ -165,6 +172,21 @@
             
             //document.getElementById("picture").style.borderColor=color;         
         }
+
+        // --------------- AÑADIR LISTENERS EN BUCLE ----------------
+
+        const parrafos = document.querySelectorAll("#bucle p");
+
+        //Primera forma para hacerlo
+        /*for( const p of parrafos){
+            p.addEventListener("click",cambiarFondo);
+        }
+        function cambiarFondo(e){
+            e.target.style.backgroundColor = "black";
+        }*/
+
+        //Otra forma de hacerlo
+        parrafos.forEach(p => p.addEventListener("click",e=> e.target.style.backgroundColor = "black"));
 
     </script>
 </body>
