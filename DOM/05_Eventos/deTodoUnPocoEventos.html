@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso Objeto Event</title>
+    <style>
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background-color: gray;
+            color: white;
+            top: 100%;
+            left: 50%;
+        }
+
+        .azulito {
+            text-align: center;
+            background-color: aqua;
+            font-size: x-large;
+            position: relative;
+        }
+
+        .divAncho {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border: 10px solid yellow;
+        }
+
+        .divColor {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            border: 10px solid green;
+        }        
+    </style>
+</head>
+
+<body>
+    <div id="position" style="border:1px solid black">
+        <h1>1. Ejemplo captura de coordenadas</h1>
+        <p>X: <span id="X"></span> Y: <span id="Y"></span></p>
+    </div>
+
+    <div id="list" style="border:1px solid black">
+        <h1>2. Ejemplo colapsar listas</h1>
+        <ul class="tree" id="tree">
+            <li class="main">Animals
+                <ul>
+                    <li class="main">Mammals
+                        <ul>
+                            <li>Cows</li>
+                            <li>Donkeys</li>
+                            <li>Dogs</li>
+                            <li>Tigers</li>
+                        </ul>
+                    </li>
+                    <li class="main">Other
+                        <ul>
+                            <li>Snakes</li>
+                            <li>Birds</li>
+                            <li>Lizards</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="main">Fishes
+                <ul>
+                    <li class="main">Aquarium
+                        <ul>
+                            <li>Guppy</li>
+                            <li>Angelfish</li>
+                        </ul>
+                    </li>
+                    <li class="main">Sea
+                        <ul>
+                            <li>Sea trout</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h1>3. Ejemplo tooltip (sacar ideas para el carrito ;-) )</h1>
+        <p class="azulito">
+            Pasa por encima el ratón para que salga info adicional en formato tooltip
+            <span class="tooltip" style="display:none">Texto adicional</span>
+        </p>
+    </div>
+
+    <h1>4. Ejemplo modificar tamaño elemento html (pasa por encima el ratón)</h1>
+    <div class="divAncho">
+        <p>Modificar ancho</p>
+    </div>
+
+    <h1>5. Ejemplo captura de estilos (haz clic en el cuadrado)</h1>
+    <div class="divColor">
+    </div>    
+
+    <script>
+        // ------------------- PAGE X + PAGE Y --------------------------------
+        //Función para mostrar la posición en la que está el puntero del ratón
+        function showMousePosition(e) {
+            const x = document.getElementById("X");
+            const y = document.getElementById("Y");
+            x.textContent = e.pageX;
+            y.textContent = e.pageY;
+        }
+        document.querySelector("#position").addEventListener("mousemove", showMousePosition);
+
+        // --------------------- OCULTAR/MOSTRAR LISTA ---------------
+        tree.onclick = function (e) {
+            if (e.target.className === "main") {
+
+                //https://developer.mozilla.org/es/docs/Web/API/Element
+                console.log(e.target.children[0]);
+                e.target.children[0].style.display = "none";
+            }
+        }
+
+        const listaItems = document.querySelectorAll(".main");
+        listaItems.forEach(item => item.addEventListener('dblclick', mostrarItems));
+
+        function mostrarItems(e) {
+            e.target.children[0].style.display = "block";
+        }
+
+        //---------------- TOOLTIP --------------------
+        const p = document.querySelector(".azulito");
+        p.addEventListener("mouseover", e => document.querySelector(".tooltip").style.display = "block");
+        p.addEventListener("mouseout", e => document.querySelector(".tooltip").style.display = "none");
+        //---------------------------------------------
+
+        // ------------------MODIFICAR ANCHO -----------
+        document.querySelector(".divAncho").addEventListener("mouseover", e => {
+            let dim = e.target.offsetWidth;
+            console.log(dim);
+            e.target.style.width = (dim + 150) + "px";
+            e.target.style.height = (dim + 150) + "px";
+        });
+        document.querySelector(".divAncho").addEventListener("mouseout", e => {
+            let dim = e.target.offsetWidth;
+            console.log(dim);
+            e.target.style.width = (dim - 150) + "px";
+            e.target.style.height = (dim - 150) + "px";
+        });
+
+        // -----------------------------------------------
+
+        document.querySelector(".divColor").onclick = gestionarColor;
+
+        function gestionarColor(e){
+            //Función getComputedStyle!!!!!!!
+            let color = window.getComputedStyle(e.target).borderColor;
+            console.log(color);
+            const miP = document.createElement("p");
+            miP.textContent="Párrafo con el color del borde del div"
+            miP.style.border = `2px solid ${color}`;
+            document.querySelector(".divColor").appendChild(miP);
+            
+            //document.getElementById("picture").style.borderColor=color;         
+        }
+
+    </script>
+</body>
+
+</html>
