@@ -24,8 +24,8 @@
         }
 
         .divAncho {
-            width: 100px;
-            height: 100px;
+            width: 25%;
+            height: 50%;
             background-color: green;
             border: 10px solid yellow;
         }
@@ -122,6 +122,7 @@
         document.querySelector("#position").addEventListener("mousemove", showMousePosition);
 
         // --------------------- OCULTAR/MOSTRAR LISTA ---------------
+        // Aprovechando la propaganción de eventos
         tree.onclick = function (e) {
             if (e.target.className === "main") {
 
@@ -131,6 +132,7 @@
             }
         }
 
+        //dobleclick de sin propagación
         const listaItems = document.querySelectorAll(".main");
         listaItems.forEach(item => item.addEventListener('dblclick', mostrarItems));
 
@@ -147,28 +149,36 @@
         // ------------------MODIFICAR ANCHO -----------
         document.querySelector(".divAncho").addEventListener("mouseover", e => {
             let dim = e.target.offsetWidth;
+            let dim2 = e.target.offsetHeight;
             console.log(dim);
             e.target.style.width = (dim + 150) + "px";
-            e.target.style.height = (dim + 150) + "px";
+            e.target.style.height = (dim2 + 150) + "px";
         });
         document.querySelector(".divAncho").addEventListener("mouseout", e => {
             let dim = e.target.offsetWidth;
+            let dim2 = e.target.offsetHeight;
             console.log(dim);
             e.target.style.width = (dim - 150) + "px";
-            e.target.style.height = (dim - 150) + "px";
+            e.target.style.height = (dim2 - 150) + "px";
         });
 
         // -------------------- CAMBIAR COLORES ---------------------------
-        document.querySelector(".divColor").onclick = gestionarColor;
+        const divColor = document.querySelector(".divColor");
+        //alert(window.getComputedStyle(divColor));
+        divColor.onclick = gestionarColor;
 
         function gestionarColor(e){
+
             //Función getComputedStyle!!!!!!!
             let color = window.getComputedStyle(e.target).borderColor;
+
             console.log(color);
+
             const miP = document.createElement("p");
-            miP.textContent="Párrafo con el color del borde del div"
+            miP.textContent="Párrafo con el color del borde del div";
             miP.style.border = `2px solid ${color}`;
-            document.querySelector(".divColor").appendChild(miP);
+            divColor.appendChild(miP);
+
             
             //document.getElementById("picture").style.borderColor=color;         
         }
