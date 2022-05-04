@@ -8,9 +8,19 @@ El formulario es el mismo, pero dependiendo de si el login está guardado en el 
 
 **Se adjunta formulario.html en esta misma carpeta.**
 
+## Validaciones HTML5 y JS
 Debes añadir las siguientes **restricciones HTML5:**
 - todos los campos son obligatorios.
 - el campo contraseña debe estar compuesto únicamente por letras minúsculas y números y tener una longitud mínima de 8 y una longitud máxima de 12.
+- el campo dirección completa debe tener una longitud mínima de 10.
+
+En el caso de que al hacer el submit, el campo dirección completa tenga una longitud inferior a 10, debe salir un mensaje personalizado diciendo:
+
+"Dirección demasiado corta. No has escrito la dirección de envío completa"
+
+![image](https://user-images.githubusercontent.com/91023374/166656454-27a706f1-f521-4438-8e9e-dc881b204ff3.png)
+
+
 
 Guarda solo el contenido de login (campo "usuario" del formulario), pero recuerda que podemos guardar en el localStorage cualquier objeto JS, siempre y cuando este haya sido convertido a texto (JSON.stringify).
 
