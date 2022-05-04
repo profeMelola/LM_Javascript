@@ -6,11 +6,21 @@ En el panel de navegación debe aparecer dos opciones. Para volver a la tienda, 
 
 El formulario es el mismo, pero dependiendo de si el login está guardado en el localStorage saldrá con unos campos u otros.
 
+Guarda solo el contenido de login (campo "usuario" del formulario), pero recuerda que podemos guardar en el localStorage cualquier objeto JS, siempre y cuando este haya sido convertido a texto (JSON.stringify).
+
 ## Formulario de alta
 
 ![image](https://user-images.githubusercontent.com/91023374/166505711-86e440f8-6b4d-4b7b-aeed-9923f15fa331.png)
 
+Al hacer clic en el botón de submit:
+
+- guarda el login en el LocalStorage.
+- se muestra de nuevo la página index.html de la tienda.
 
 ## Formulario de login
 
+Si al cargar el formulario el login está guardado en el LocalStorage, debes modificar el formulario mostrando solo la siguiente información.
+
 ![image](https://user-images.githubusercontent.com/91023374/166505634-e3c9dcb8-a7cb-4fbf-8846-204c4fb895c0.png)
+
+Al hacer clic no debe modificarse el localstorage, simplemente volver al index.html.
