@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm() {
+            //let x = document.forms["myForm"]["fname"].value;
+            let x = document.getElementById("fname").value;
+            if (x == "") {
+                alert("Majete!!! rellena el campo");
+                return false;
+            }
+            else{
+                alert("Ejecutando el submit!!!");
+                document.forms[0].submit();
+            }
+                
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" action="/niidea" method="post">
+        Name: <input mitype="text" name="fname" id="fname">
+        <!--<input type="button" onClick="validateForm()" value="Submit">-->
+    </form>
+
+    <p>
+        <a href="javascript:validateForm()">Enviar formulario</a>
+    </p>
+
+</body>
+
+</html>
