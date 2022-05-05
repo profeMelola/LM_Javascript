@@ -14,7 +14,7 @@ Debes añadir las siguientes **restricciones HTML5:**
 - el campo contraseña debe estar compuesto únicamente por letras minúsculas y números y tener una longitud mínima de 8 y una longitud máxima de 12.
 - el campo dirección completa debe tener una longitud mínima de 10.
 
-En el caso de que al hacer el submit, el campo dirección completa tenga una longitud inferior a 10, debe salir un mensaje personalizado diciendo:
+En el caso de que al hacer el submit el campo dirección completa tenga una longitud inferior a 10, debe salir un mensaje personalizado diciendo:
 
 "Dirección demasiado corta. No has escrito la dirección de envío completa"
 
