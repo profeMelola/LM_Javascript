@@ -42,5 +42,9 @@ Si al cargar el formulario el login está guardado en el LocalStorage, debes mod
 ![image](https://user-images.githubusercontent.com/91023374/166505634-e3c9dcb8-a7cb-4fbf-8846-204c4fb895c0.png)
 
 Al hacer submit debe comprobarse que el valor de login introducido es igual al guardado en el localstorage:
-- Si no es así, debe salir un alert avisando del error.
 - Si son iguales debe volver al index.html de la tienda.
+- Si son distintos, debe salir un alert avisando del error.
+
+
+![image](https://user-images.githubusercontent.com/91023374/166953479-f8192303-36fb-4842-aed4-cf51577f93ae.png)
+
