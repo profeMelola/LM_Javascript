@@ -4,7 +4,7 @@ En el panel de navegación debe aparecer dos opciones. Para volver a la tienda, 
 
 ![image](https://user-images.githubusercontent.com/91023374/166509110-ec603004-5653-4129-bdfd-a707d11b4057.png)
 
-El formulario es el mismo, pero dependiendo de si el login está guardado en el localStorage saldrá con unos campos u otros.
+El formulario es el mismo, pero dependiendo de si el valor del campo input asociado al login está guardado en el localStorage saldrá con unos campos u otros.
 
 **Se adjunta formulario.html en esta misma carpeta.**
 
