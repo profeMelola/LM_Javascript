@@ -22,7 +22,7 @@ En el caso de que al hacer el submit el campo dirección completa tenga una long
 
 
 
-Guarda solo el contenido de login (campo "usuario" del formulario), pero recuerda que podemos guardar en el localStorage cualquier objeto JS, siempre y cuando este haya sido convertido a texto (JSON.stringify).
+Guarda en el localStorage solo el contenido de login (campo "usuario" del formulario), pero recuerda que podemos guardar en el localStorage cualquier objeto JS, siempre y cuando este haya sido convertido a texto (JSON.stringify).
 
 ## Formulario de alta
 
