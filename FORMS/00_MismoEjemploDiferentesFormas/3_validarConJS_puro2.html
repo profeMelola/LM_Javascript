@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Validar con JS</title>
     <script>
-        function validateForm() {
-            //let x = document.forms["myForm"]["fname"].value;
-            let x = document.getElementById("fname").value;
+        function validateForm(evento) {
+            const x = document.getElementById("fname").value;
             if (x == "") {
                 alert("Majete!!! rellena el campo");
-                return false;
+                evento.preventDefault();
             }
         }
     </script>
 </head>
 
 <body>
-    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+    <h1>Validación pura JS - onsubmit inline (con preventDefault)</h1>
+    <h2>El campo "name" es obligatorio</h2>    
+    <form name="myForm" action="../submit.html" onsubmit="validateForm(event)" method="post">
         Name: <input type="text" name="fname" id="fname">
         <input type="submit" value="Submit">
     </form>

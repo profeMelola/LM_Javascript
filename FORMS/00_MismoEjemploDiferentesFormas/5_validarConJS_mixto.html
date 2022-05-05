@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar con JS MIXTO</title>
+</head>
+
+<body>
+    <h1>Validación MIXTA - HTML5 + JS</h1>
+    <h2>El campo "name" es obligatorio y su longitud mínima debe ser 5</h2>    
+    <form name="myForm" action="../submit.html" method="post">
+        Name: <input type="text" name="fname" id="fname" required minlength="5">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        //const fname = document.getElementById("fname");
+        //const fname = document.querySelector("#fname");
+
+        // El evento input se dispara cuando hay cambios en el value
+        fname.addEventListener('input',e=>{
+
+            // 2 formas de saber si las restricciones html5 son correctas
+            console.log("e.target.validity.valid:");
+            console.log(e.target.validity.valid);
+
+            console.log("e.target.checkValidity():");
+            console.log(e.target.checkValidity());
+
+            // Vamos a personalizar el mensaje
+            if (!e.target.checkValidity()){
+                console.log("¿Es demasiado corto?");
+                console.log(e.target.validity.tooShort);
+                if (e.target.validity.tooShort)
+                    e.target.setCustomValidity("Majete debe tener el campo una longitud min de 5 caracteres!!!!");
+                else
+                e.target.setCustomValidity("");
+            }
+        });
+
+        document.forms[0].addEventListener('submit',e=>{
+            console.log("fname.checkValidity()");
+            console.log(fname.validity.valid);
+
+            if (fname.validity.valid)
+                alert("correcto!!!!");
+            else{
+                //Por aquí nunca pasará porque siempre será correcto cuando llegue al submit!!!!
+                //Porque se valida directamente las restricciones HTML5
+                alert("incorrecto!!!!");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

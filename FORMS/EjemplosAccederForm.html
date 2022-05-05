@@ -28,12 +28,6 @@
     </p>
 
     <script>
-        //"use strict";
-
-        console.log(this); //object window
-
-        console.log(this.form); //undefined
-        console.log(this.forms); //undefined
         console.log(document.form); //undefined
         console.log(document.forms); //HTMLCollections
         console.log(document["form2"]); //Devuelve el segundo formulario <form ...>
@@ -43,20 +37,6 @@
         console.log(document.querySelector("#form3")); //Devuelve el tercer formulario
         console.log(document.form2); //devuelve el segundo formulario
         console.log(document.form2.elements); //HTMLFormControlsCollection
-
-        function pruebaThis(e) {
-            console.log("En pruebaThis....");
-            console.log(this);
-        }
-
-        //this usado para acceder a la propiedad de un objeto
-        const o = {
-            prop: 45,
-            f: function () {
-                return this.prop;
-            }
-        };
-        console.log(o.f());
     </script>
 </body>
 

@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Validar sin botón submit</title>
     <script>
         function validateForm() {
-            //let x = document.forms["myForm"]["fname"].value;
-            let x = document.getElementById("fname").value;
+            const x = document.getElementById("fname").value;
             if (x == "") {
                 alert("Majete!!! rellena el campo");
-                return false;
+                //return false;
             }
             else{
-                alert("Ejecutando el submit!!!");
                 document.forms[0].submit();
             }
                 
@@ -24,9 +22,11 @@
 </head>
 
 <body>
-    <form name="myForm" action="/niidea" method="post">
+    <h1>Validación pura JS - sin botón/input tipo submit</h1>
+    <h2>El campo "name" es obligatorio</h2>    
+
+    <form name="myForm" action="../submit.html" method="post">
         Name: <input mitype="text" name="fname" id="fname">
-        <!--<input type="button" onClick="validateForm()" value="Submit">-->
     </form>
 
     <p>
