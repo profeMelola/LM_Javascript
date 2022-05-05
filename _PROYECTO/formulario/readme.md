@@ -14,9 +14,11 @@ Debes añadir las siguientes **restricciones HTML5:**
 - el campo contraseña debe estar compuesto únicamente por letras minúsculas y números y tener una longitud mínima de 8 y una longitud máxima de 12.
 - el campo dirección completa debe tener una longitud mínima de 10.
 
-En el caso de que al hacer el submit el campo dirección completa tenga una longitud inferior a 10, debe salir un mensaje personalizado diciendo:
+En el caso de que al hacer el submit el campo "dirección completa" tenga una longitud inferior a 10, debe salir un mensaje personalizado diciendo:
 
-"Dirección demasiado corta. No has escrito la dirección de envío completa"
+*"Dirección demasiado corta. No has escrito la dirección de envío completa"*
+
+Como en la siguiente captura:
 
 ![image](https://user-images.githubusercontent.com/91023374/166656454-27a706f1-f521-4438-8e9e-dc881b204ff3.png)
 
@@ -39,4 +41,6 @@ Si al cargar el formulario el login está guardado en el LocalStorage, debes mod
 
 ![image](https://user-images.githubusercontent.com/91023374/166505634-e3c9dcb8-a7cb-4fbf-8846-204c4fb895c0.png)
 
-Al hacer clic no debe modificarse el localstorage, simplemente volver al index.html.
+Al hacer submit debe comprobarse que el valor de login introducido es igual al guardado en el localstorage:
+- Si no es así, debe salir un alert avisando del error.
+- Si son iguales debe volver al index.html de la tienda.
