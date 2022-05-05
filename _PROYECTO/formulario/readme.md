@@ -6,7 +6,7 @@ En el panel de navegación debe aparecer dos opciones. Para volver a la tienda, 
 
 El formulario es el mismo, pero dependiendo de si el valor del campo input asociado al login está guardado en el localStorage saldrá con unos campos u otros.
 
-**Se adjunta formulario.html en esta misma carpeta.**
+**Se adjunta formulario.html en esta misma carpeta en un zip.**
 
 ## Validaciones HTML5 y JS
 Debes añadir las siguientes **restricciones HTML5:**
