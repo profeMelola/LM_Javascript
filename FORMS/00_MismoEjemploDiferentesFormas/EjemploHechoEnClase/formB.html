@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas validar form</title>
+</head>
+
+<body>
+    <h1>Pruebas en clase de validar campos de formulario</h1>
+    <form action="submit.html">
+        <p>
+            <label>DNI:<input name="dni" type="text" pattern="[0-9]{8}[A-Z]{1}" required></input></label>
+        </p>
+        <p>
+            <label>email:<input name="email" type="email" required/></label>
+        </p>
+        <input type="submit" value="Registrar"/>
+    </form>
+
+    <script>
+        const dni = document.forms[0].dni;
+        const email = document.forms[0].email;
+
+        dni.addEventListener('click',e=>{
+            if (!e.target.checkValidity()){
+                if (e.target.validity.valueMissing)
+                    e.target.setCustomValidity("Torpedo escribe algo!!!");
+                else
+                e.target.setCustomValidity("");
+            }
+        });
+
+        //dni.setCustomValidity("Torpedo escribe algo!!!");
+        
+        dni.addEventListener('input',e=>{
+            if (!e.target.checkValidity()){
+                /*if (e.target.validity.valueMissing)
+                    e.target.setCustomValidity("Torpedo escribe algo!!!");*/
+                if (e.target.validity.patternMismatch)
+                    e.target.setCustomValidity("Torpedo no es un DNI!!!");
+                else
+                    e.target.setCustomValidity("");
+            }
+                
+        }); 
+
+        email.addEventListener('input',e=>{
+            if (!e.target.checkValidity()){
+                if (e.target.validity.typeMismatch)
+                    e.target.setCustomValidity("Torpedo no es un email!!!");
+                else
+                    e.target.setCustomValidity("");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
