@@ -8,7 +8,8 @@
     <title>Validar con JS</title>
     <script>
         function validateForm() {
-            const x = document.getElementById("fname").value;
+            //const x = document.getElementById("fname").value;
+            const x = document.forms[0].fname.value;
             if (x == "") {
                 alert("Majete!!! rellena el campo");
                 return false;

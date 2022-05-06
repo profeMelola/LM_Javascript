@@ -70,8 +70,7 @@
       <label for="mail">
         <span>Por favor, introduzca una dirección de correo electrónico: </span>
         <input type="email" id="mail" name="mail" required minlength="8">
-        <span class="error" aria-live="polite" id="spanError"></span>
-        <!--https://www.usableyaccesible.com/ejemplo_aria_live/ejemplo_liveregions.html-->
+        <span class="error" id="spanError"></span>
       </label>
     </p>
     <button type="submit">Enviar</button>
@@ -85,7 +84,8 @@
     const form = document.getElementsByTagName('form')[0];
 
     const email = document.getElementById('mail');
-    const emailError = document.querySelector('#mail + span.error');
+    //const emailError = document.querySelector('#mail + span.error');
+    const emailError = document.querySelector('#spanError');
 
     email.addEventListener('input', function (event) {
       // Cada vez que el usuario escribe algo, verificamos si

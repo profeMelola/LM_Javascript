@@ -10,9 +10,9 @@
 
 <body>
     <h1>Validación pura HTML5</h1>
-    <h2>El campo "name" es obligatorio</h2>
+    <h2>El campo "name" es obligatorio y longitud mínima 5</h2>
     <form name="myForm" action="../submit.html" method="post">
-        Name: <input type="text" name="fname" id="fname" required>
+        Name: <input type="text" name="fname" id="fname" required minlength="5">
         <input type="submit" value="Submit">
     </form>
 </body>
