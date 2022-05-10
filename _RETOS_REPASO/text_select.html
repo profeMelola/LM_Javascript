@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<meta charset="utf-8">
+		<title>Ejemplo textarea</title> 
+		<script>
+			// --------------------------------------
+			// Manejar eventos
+			// --------------------------------------
+
+			// función para contar el número de caracteres del campo textarea
+			function cuenta(){ 
+				
+			} 
+
+			// función que rellena el segundo select en base a la opción elegida del primer select
+			function cambia_provincia(){ 
+
+				const provincias_1=["Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","..."];
+				const provincias_2=["Salta","San Juan","San Luis","La Rioja","La Pampa","..."]; 
+				const provincias_3=["Cali","Santamarta","Medellin","Cartagena","..."]; 
+				const provincias_4=["Aisne","Creuse","Dordogne","Essonne","Gironde ","..."];
+
+				//Pistas (propiedades):
+				// Los items de una lista se recorren como un array (options)
+				// selectedIndex: indica la posición del item seleccionado de la lista
+				// value: propiedad para asignar contenido a la propiedad valor del item de la lista
+				// text: propiedad asignar el texto al item de la lista
+				// selected: propiedad que si está a true indica que el item está seleccionado
+				
+			}
+		</script> 
+	</head> 
+	<body> 
+		<div>
+			<form name="formul"> 
+				<fieldset>
+					<legend>Textarea</legend>
+					<p>
+						<textarea name="textito" cols="40" rows="3">Este es el texto por defecto</textarea> 
+					</p>
+					<p>
+						N&uacute;mero de caracteres <input type="text" name="numCaracteres" size="4"> 
+					</p>
+					<p>
+						<input type=button value="Cuenta caracteres"> 
+					</p>
+				</fieldset>
+			</form> 
+		</div>
+		<div>
+			<form name="f1"> 
+				<fieldset>
+					<legend>Listas desplegables</legend>
+						<select name="pais"> 
+							<option value="0" selected>Seleccione... 
+							<option value="1">Espa&ntilde;a 
+							<option value="2">Argentina 
+							<option value="3">Colombia 
+							<option value="4">Francia 
+						</select>
+						<select name="provincia"> 
+							<option value="-">- 
+						</select> 
+				</fieldset>
+			</form>
+		</div>
+	</body> 
+</html>
