@@ -28,9 +28,12 @@
       //'https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/superheroes.json' 
       //from origin 'null' has been blocked by CORS policy: 
       //No 'Access-Control-Allow-Origin' header is present on the requested resource.
+      // https://lenguajejs.com/javascript/peticiones-http/xhr/#pol%C3%ADtica-cors
 
-      const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
       //const requestURL = 'https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/superheroes.json';
+      
+      const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+      
 
       const request = new XMLHttpRequest();
       request.open("GET",requestURL);
