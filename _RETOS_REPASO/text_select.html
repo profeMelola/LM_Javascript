@@ -1,72 +1,117 @@
 <!DOCTYPE html>
-<html> 
-	<head> 
-		<meta charset="utf-8">
-		<title>Ejemplo textarea</title> 
-	</head> 
-	<body> 
-		<div>
-			<form name="formul"> 
-				<fieldset>
-					<legend>Textarea</legend>
-					<p>
-						<textarea name="textito" cols="40" rows="3">Este es el texto por defecto</textarea> 
-					</p>
-					<p>
-						N&uacute;mero de caracteres <input type="text" name="numCaracteres" size="4"> 
-					</p>
-					<p>
-						<input type="button" name="boton" value="Cuenta caracteres"> 
-					</p>
-				</fieldset>
-			</form> 
-		</div>
-		<div>
-			<form name="f1"> 
-				<fieldset>
-					<legend>Listas desplegables</legend>
-						<select name="pais"> 
-							<option value="0" selected>Seleccione... </option>
-							<option value="1">España </option>
-							<option value="2">Argentina </option>
-							<option value="3">Colombia </option>
-							<option value="4">Francia </option>
-						</select>
-						<select name="provincia"> 
-							<option value="-">- </option>
-						</select> 
-				</fieldset>
-			</form>
-		</div>
-		<script>
-			// --------------------------------------
-			// Añadir listeners de eventos eventos
-			// --------------------------------------
-			// ---------------------------------------
-			// función para contar el número de caracteres del campo textarea
-			function cuenta(){ 
+<html>
 
-			} 
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo textarea</title>
+</head>
 
-			// función que rellena el segundo select en base a la opción elegida del primer select
-			function cambia_provincia(e){ 
+<body>
+	<div>
+		<form name="formul">
+			<fieldset>
+				<legend>Textarea</legend>
+				<p>
+					<textarea name="textito" cols="40" rows="3">Este es el texto por defecto</textarea>
+				</p>
+				<p>
+					N&uacute;mero de caracteres <input type="text" name="numCaracteres" size="4">
+				</p>
+				<p>
+					<input type="button" name="boton" value="Cuenta caracteres">
+				</p>
+			</fieldset>
+		</form>
+	</div>
+	<div>
+		<form name="f1">
+			<fieldset>
+				<legend>Listas desplegables</legend>
+				<select name="pais">
+					<option value="0" selected>Seleccione... </option>
+					<option value="1">España </option>
+					<option value="2">Argentina </option>
+					<option value="3">Colombia </option>
+					<option value="4">Francia </option>
+				</select>
+				<select name="provincia">
+					<option value="-">- </option>
+				</select>
+			</fieldset>
+		</form>
+	</div>
+	<script>
+		// --------------------------------------
+		// Añadir listeners de eventos eventos
+		// --------------------------------------
+		document.formul.boton.addEventListener('click', cuenta);
+		document.formul.textito.addEventListener('input', cuenta);
+		document.f1.pais.addEventListener('change', cambia_provincia);
 
-				const provincias_1=["Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","..."];
-				const provincias_2=["Salta","San Juan","San Luis","La Rioja","La Pampa","..."]; 
-				const provincias_3=["Cali","Santamarta","Medellin","Cartagena","..."]; 
-				const provincias_4=["Aisne","Creuse","Dordogne","Essonne","Gironde ","..."];
+		// ---------------------------------------
+		// función para contar el número de caracteres del campo textarea
+		function cuenta() {
+			document.formul.numCaracteres.value = document.formul.textito.value.length;
+		}
 
-				//Pistas (propiedades):
-				// Los items de una lista se recorren como un array (options)
-				// selectedIndex: indica la posición del item seleccionado de la lista
-				// value: propiedad para asignar contenido a la propiedad valor del item de la lista
-				// text: propiedad asignar el texto al item de la lista
-				// selected: propiedad que si está a true indica que el item está seleccionado
-				// Objeto Option: dos propiedades ( valor, texto)
+		// función que rellena el segundo select en base a la opción elegida del primer select
+		function cambia_provincia(e) {
 
+			const provincias_1 = ["Andalucía", "Asturias", "Baleares", "Canarias", "Castilla y León", "Castilla-La Mancha",
+				"..."
+			];
+			const provincias_2 = ["Salta", "San Juan", "San Luis", "La Rioja", "La Pampa", "..."];
+			const provincias_3 = ["Cali", "Santamarta", "Medellin", "Cartagena", "..."];
+			const provincias_4 = ["Aisne", "Creuse", "Dordogne", "Essonne", "Gironde ", "..."];
 
-				
+			//Pistas (propiedades):
+			// Los items de una lista se recorren como un array (options)
+			// selectedIndex: indica la posición del item seleccionado de la lista
+			// value: propiedad para asignar contenido a la propiedad valor del item de la lista
+			// text: propiedad asignar el texto al item de la lista
+			// selected: propiedad que si está a true indica que el item está seleccionado
+			// Objeto Option: dos propiedades ( texto, valor)
+
+			const index = e.target.selectedIndex; // índice seleccionado
+			console.log("indice seleccionado:");
+			console.log(index);
+
+			const valor = e.target.options[index].value;
+			console.log("valor del option seleccionado:");
+			console.log(valor);
+
+			//Antes de añadir las provincias asociadas del pais limpio el select provincia
+			document.f1.provincia.innerHTML = "";
+
+			const provincias = eval("provincias_" + valor);
+
+			for (let i = 0; i < provincias.length; i++) {
+				document.f1.provincia.appendChild(new Option(provincias[i], i));
 			}
-		</script> 
-	</body> 
+
+
+			/*
+			// EN EL CASO DE NO USAR LA FUNCIÓN eval
+			// USAR IF... ELSE O SWITCH ... CASE
+			if (valor == "1"){
+				for(let i =0; i < provincias_1.length; i++){
+					document.f1.provincia.append(new Option(provincias_1[i],i));
+				}
+			}
+			else if (valor == "2"){
+				
+				// provincias_2.forEach((elemento,pos)=>{
+				// 	document.f1.provincia.append(new Option(element,pos));
+				// });
+
+				for(let i =0; i < provincias_2.length; i++){
+					document.f1.provincia.append(new Option(provincias_2[i],i));
+				}
+			}*/
+
+
+		}
+	</script>
+</body>
+
 </html>
